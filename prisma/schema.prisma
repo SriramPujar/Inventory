@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Business {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     User[]
+  orders    Order[]
+  products  Product[]
+}
+
+model User {
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  role       String   // "ADMIN" or "WORKER"
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Relations
+  assignedOrders Order[]
+  sales          Product[]
+}
+
+model Order {
+  id            String   @id @default(uuid())
+  customerName  String
+  orderName     String
+  date          DateTime
+  location      String?
+  ceremonyDates String   // Stored as comma-separated string or JSON
+  amount        Float
+  workerAmount  Float?   @default(0)
+  status        String   @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED
+  
+  // Assignment
+  workerName    String?  // Editable name
+  workerId      String?
+  worker        User?    @relation(fields: [workerId], references: [id])
+  
+  businessId    String
+  business      Business @relation(fields: [businessId], references: [id])
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Product {
+  id            String   @id @default(uuid())
+  customerName  String
+  productName   String
+  date          DateTime
+  amount        Float
+  paymentMethod String   // "ONLINE" or "OFFLINE"
+  
+  createdById   String
+  createdBy     User     @relation(fields: [createdById], references: [id])
+  
+  businessId    String
+  business      Business @relation(fields: [businessId], references: [id])
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
