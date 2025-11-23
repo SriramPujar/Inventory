@@ -45,8 +45,14 @@ Since your local database is on your PC, Vercel cannot access it. We need a clou
 4.  **Important**: You need to apply your database schema to this new cloud database.
     *   In your local terminal, run:
         ```bash
-        # Replace the URL with your NEON connection string
-        npx prisma db push --db-url="postgres://..."
+        # For PowerShell:
+        $env:DATABASE_URL="<YOUR_NEON_CONNECTION_STRING>"; npx prisma db push
+        
+        # For Command Prompt (cmd):
+        set DATABASE_URL=<YOUR_NEON_CONNECTION_STRING> && npx prisma db push
+        
+        # For Bash/Git Bash:
+        DATABASE_URL="<YOUR_NEON_CONNECTION_STRING>" npx prisma db push
         ```
 
 ## Phase 3: Deploy to Vercel
@@ -67,3 +73,25 @@ Since your local database is on your PC, Vercel cannot access it. We need a clou
 1.  Once deployed, Vercel will give you a URL.
 2.  Go to your **Neon Dashboard** -> **Settings** -> **Compute** and ensure it allows connections from anywhere (usually default).
 3.  Test your app!
+
+## Alternative: Updating Existing Deployment
+
+If you **already** have a Vercel project and Neon database (from a previous setup), you don't need to create new ones. You just need to **connect** this folder to them.
+
+1.  **Complete Phase 1** (Install & Configure Git) - This is required because your current folder doesn't have Git initialized.
+2.  **Connect to GitHub**:
+    *   Find your **existing** GitHub Repository URL.
+    *   Run:
+        ```bash
+        git remote add origin <YOUR_EXISTING_GITHUB_URL>
+        git branch -M main
+        git push -u origin main --force
+        ```
+3.  **Update Database**:
+    *   If you changed your database schema (added tables/fields), run:
+        ```bash
+        npx prisma db push --db-url="<YOUR_EXISTING_NEON_CONNECTION_STRING>"
+        ```
+4.  **Vercel**:
+    *   Vercel will automatically redeploy when you push to GitHub.
+
