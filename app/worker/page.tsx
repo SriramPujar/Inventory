@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import { Calendar, MapPin, CheckCircle, Clock, AlertCircle, Plus } from "lucide-react";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function WorkerOrdersPage() {
+    const router = useRouter();
     const { data: session } = useSession();
     const [orders, setOrders] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
@@ -60,7 +62,7 @@ export default function WorkerOrdersPage() {
                 <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Actions</h3>
                 <div className="flex flex-wrap gap-4">
                     <button 
-                        onClick={() => window.location.href = '/worker/sales?add=true'}
+                        onClick={() => router.push('/worker/sales?add=true')}
                         className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
                     >
                         <Plus size={20} />

@@ -97,7 +97,8 @@ export const authOptions: NextAuthOptions = {
         signIn: "/login/admin", // Default, but we will handle redirection manually
     },
     session: {
-        strategy: "jwt",
+        strategy: "jwt" as const,
+        maxAge: 90 * 24 * 60 * 60, // 90 days
     },
     secret: process.env.NEXTAUTH_SECRET,
 };
