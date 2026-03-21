@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { LayoutDashboard, ShoppingCart, Package, Users, LogOut, Menu, X } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useState } from "react";
+import { ChatInterface } from "@/components/ChatInterface";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -80,9 +81,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto p-8 lg:p-8 pt-20 lg:pt-8">
+            <main className="flex-1 overflow-y-auto p-8 lg:p-8 pt-20 lg:pt-8 bg-gray-50">
                 {children}
             </main>
+            <ChatInterface />
         </div>
     );
 }

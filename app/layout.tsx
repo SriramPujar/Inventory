@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: "Admin and Worker Inventory System",
 };
 
-import { ChatInterface } from "@/components/ChatInterface";
 
 export default function RootLayout({
   children,
@@ -22,7 +21,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           {children}
-          <ChatInterface />
         </Providers>
         <div className="fixed bottom-0 right-0 p-1 text-xs text-gray-400 bg-white/50 pointer-events-none z-50">v1.1</div>
       </body>

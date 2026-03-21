@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
-import { Loader2, IndianRupee, ShoppingBag, Users, TrendingUp } from "lucide-react";
+import { Loader2, IndianRupee, ShoppingBag, ShoppingCart, Users, TrendingUp, Package } from "lucide-react";
 
 export default function AdminDashboard() {
     const [data, setData] = useState<any>(null);
@@ -50,13 +50,25 @@ export default function AdminDashboard() {
             <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                 <StatCard
-                    title="Total Revenue"
-                    value={`₹${data.totalRevenue.toLocaleString()}`}
-                    icon={IndianRupee}
-                    color="bg-green-500"
-                    onClick={() => setSelectedCard('REVENUE')}
+                    title="Daily Purchases"
+                    value={(() => {
+                        const today = new Date().toDateString();
+                        const todayOrd = (data.orders || []).filter((o: any) => new Date(o.date).toDateString() === today).length;
+                        const todayProd = (data.products || []).filter((p: any) => new Date(p.date).toDateString() === today).length;
+                        return todayOrd + todayProd;
+                    })()}
+                    icon={ShoppingCart}
+                    color="bg-teal-500"
+                    onClick={() => setSelectedCard('DAILY')}
+                />
+                <StatCard
+                    title="Total Products"
+                    value={data.products?.length || 0}
+                    icon={Package}
+                    color="bg-indigo-500"
+                    onClick={() => setSelectedCard('PRODUCTS')}
                 />
                 <StatCard
                     title="Total Orders"
@@ -172,9 +184,19 @@ function DetailsModal({ type, data, onClose }: { type: string, data: any, onClos
     let listData: any[] = [];
     let title = "";
 
-    if (type === 'REVENUE') {
-        title = "Total Revenue Breakdown (Sales)";
+    if (type === 'PRODUCTS') {
+        title = "Total Products Sold";
         listData = data.products || [];
+    } else if (type === 'DAILY') {
+        title = "Today's Purchases & Orders";
+        const today = new Date().toDateString();
+        const todayOrders = (data.orders || [])
+            .filter((o: any) => new Date(o.date).toDateString() === today)
+            .map((o: any) => ({ ...o, tableDesc: o.orderName, tableType: `Order (${o.status})` }));
+        const todayProducts = (data.products || [])
+            .filter((p: any) => new Date(p.date).toDateString() === today)
+            .map((p: any) => ({ ...p, tableDesc: p.productName, tableType: `Product (${p.paymentMethod})` }));
+        listData = [...todayOrders, ...todayProducts].sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
     } else if (type === 'TOTAL_ORDERS') {
         title = "Total Orders";
         listData = data.orders || [];
@@ -207,10 +229,15 @@ function DetailsModal({ type, data, onClose }: { type: string, data: any, onClos
                                 <tr>
                                     <th className="px-4 py-3">Date</th>
                                     <th className="px-4 py-3">Customer</th>
-                                    {type === 'REVENUE' ? (
+                                    {type === 'PRODUCTS' ? (
                                         <>
                                             <th className="px-4 py-3">Product</th>
                                             <th className="px-4 py-3">Method</th>
+                                        </>
+                                    ) : type === 'DAILY' ? (
+                                        <>
+                                            <th className="px-4 py-3">Description</th>
+                                            <th className="px-4 py-3">Type</th>
                                         </>
                                     ) : (
                                         <>
@@ -239,7 +266,7 @@ function DetailsModal({ type, data, onClose }: { type: string, data: any, onClos
                                             </td>
                                             
                                             {/* Column 3 & 4 */}
-                                            {type === 'REVENUE' ? (
+                                            {type === 'PRODUCTS' ? (
                                                 <>
                                                     <td className="px-4 py-3 truncate max-w-xs">{item.productName}</td>
                                                     <td className="px-4 py-3">
@@ -247,6 +274,11 @@ function DetailsModal({ type, data, onClose }: { type: string, data: any, onClos
                                                             {item.paymentMethod}
                                                         </span>
                                                     </td>
+                                                </>
+                                            ) : type === 'DAILY' ? (
+                                                <>
+                                                    <td className="px-4 py-3 truncate max-w-xs">{item.tableDesc}</td>
+                                                    <td className="px-4 py-3 text-xs text-gray-600 font-medium">{item.tableType}</td>
                                                 </>
                                             ) : (
                                                 <>
