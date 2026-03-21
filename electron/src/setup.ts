@@ -130,6 +130,7 @@ export class ElectronCapacitorApp {
         // Use preload to inject the electron varriant overrides for capacitor plugins.
         // preload: join(app.getAppPath(), "node_modules", "@capacitor-community", "electron", "dist", "runtime", "electron-rt.js"),
         preload: preloadPath,
+        partition: 'persist:inventory-session',
       },
     });
     this.mainWindowState.manage(this.MainWindow);
@@ -224,8 +225,11 @@ export class ElectronCapacitorApp {
         this.MainWindow.show();
       }
       setTimeout(() => {
+        if (this.MainWindow && !this.MainWindow.isDestroyed()) {
+          this.MainWindow.webContents.closeDevTools();
+        }
         CapElectronEventEmitter.emit('CAPELECTRON_DeeplinkListenerInitialized', '');
-      }, 400);
+      }, 500);
     });
   }
 }

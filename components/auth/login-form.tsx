@@ -93,7 +93,7 @@ export function LoginForm({ role }: LoginFormProps) {
 
             <div className="flex items-center justify-between text-sm">
                 <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-300" />
+                    <input type="checkbox" className="rounded border-gray-300" checked readOnly />
                     <span className="text-gray-600">Remember me</span>
                 </label>
                 <a href="#" className="text-blue-600 hover:underline">Forgot password?</a>
