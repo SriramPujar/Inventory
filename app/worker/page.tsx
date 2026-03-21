@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Calendar, MapPin, CheckCircle, Clock, AlertCircle } from "lucide-react";
+import { Calendar, MapPin, CheckCircle, Clock, AlertCircle, Plus } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 export default function WorkerOrdersPage() {
@@ -54,6 +54,20 @@ export default function WorkerOrdersPage() {
     return (
         <div className="space-y-6">
             <h1 className="text-2xl font-bold text-gray-900">My Orders</h1>
+
+            {/* Quick Actions */}
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Actions</h3>
+                <div className="flex flex-wrap gap-4">
+                    <button 
+                        onClick={() => window.location.href = '/worker/sales?add=true'}
+                        className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
+                    >
+                        <Plus size={20} />
+                        Add Product Sale
+                    </button>
+                </div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {orders.map((order) => {

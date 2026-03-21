@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Plus, Calendar, MapPin, User, Trash2 } from "lucide-react";
 
 export default function OrdersPage() {
@@ -8,6 +9,14 @@ export default function OrdersPage() {
     const [workers, setWorkers] = useState<any[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editOrderId, setEditOrderId] = useState<string | null>(null);
+    const searchParams = useSearchParams();
+    const shouldAdd = searchParams.get('add') === 'true';
+
+    useEffect(() => {
+        if (shouldAdd) {
+            setIsModalOpen(true);
+        }
+    }, [shouldAdd]);
 
     const fetchData = () => {
         fetch("/api/order")

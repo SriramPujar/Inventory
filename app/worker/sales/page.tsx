@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Plus, Edit2 } from "lucide-react";
 import { PRODUCT_CATEGORIES, PriceItem, PricingCategory } from "@/app/data/pricingData";
 
@@ -8,6 +9,14 @@ export default function WorkerSalesPage() {
     const [products, setProducts] = useState<any[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editProduct, setEditProduct] = useState<any | null>(null);
+    const searchParams = useSearchParams();
+    const shouldAdd = searchParams.get('add') === 'true';
+
+    useEffect(() => {
+        if (shouldAdd) {
+            setIsModalOpen(true);
+        }
+    }, [shouldAdd]);
 
     const fetchProducts = () => {
         fetch("/api/product").then(res => res.json()).then(setProducts);

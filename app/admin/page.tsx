@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
-import { Loader2, IndianRupee, ShoppingBag, ShoppingCart, Users, TrendingUp, Package } from "lucide-react";
+import { Loader2, IndianRupee, ShoppingBag, ShoppingCart, Users, TrendingUp, Package, Plus } from "lucide-react";
 
 export default function AdminDashboard() {
     const [data, setData] = useState<any>(null);
@@ -91,6 +91,27 @@ export default function AdminDashboard() {
                     color="bg-purple-500"
                     onClick={() => setSelectedCard('COMPLETED')}
                 />
+            </div>
+
+            {/* Quick Actions */}
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Actions</h3>
+                <div className="flex flex-wrap gap-4">
+                    <button 
+                        onClick={() => window.location.href = '/admin/products?add=true'}
+                        className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
+                    >
+                        <Plus size={20} />
+                        Add Product Sale
+                    </button>
+                    <button 
+                        onClick={() => window.location.href = '/admin/orders?add=true'}
+                        className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm font-medium"
+                    >
+                        <Plus size={20} />
+                        Create New Order
+                    </button>
+                </div>
             </div>
 
             {/* Charts */}
