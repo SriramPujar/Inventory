@@ -1,6 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 import bcrypt from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
@@ -19,18 +19,30 @@ export const authOptions: NextAuthOptions = {
                     throw new Error("Missing credentials");
                 }
 
-                const user = await prisma.user.findUnique({
-                    where: { email: credentials.email },
-                    include: { business: true }
-                });
+                const usersRef = db.collection('users');
+                const snapshot = await usersRef.where('email', '==', credentials.email).get();
 
-                if (!user) {
+                if (snapshot.empty) {
                     console.log("User not found");
                     throw new Error("User not found");
                 }
 
+                const userDoc = snapshot.docs[0];
+                const user = userDoc.data();
+                const userId = userDoc.id;
+
+                // Fetch Business
+                const businessDoc = await db.collection('businesses').doc(user.businessId).get();
+
+                if (!businessDoc.exists) {
+                    console.log("Business not found");
+                    throw new Error("Business not found");
+                }
+
+                const business = businessDoc.data();
+
                 // Verify Business Name (Case insensitive)
-                if (user.business.name.toLowerCase() !== credentials.businessName.toLowerCase()) {
+                if (business?.name.toLowerCase() !== credentials.businessName.toLowerCase()) {
                     console.log("Business name mismatch");
                     throw new Error("Invalid Business Name");
                 }
@@ -48,13 +60,14 @@ export const authOptions: NextAuthOptions = {
                     throw new Error(`Access denied. Please use the ${user.role.toLowerCase()} login page.`);
                 }
 
-                console.log("User authenticated:", user.id);
+                console.log("User authenticated:", userId);
                 return {
-                    id: user.id,
+                    id: userId,
                     name: user.name,
                     email: user.email,
                     role: user.role,
-                    businessId: user.businessId
+                    businessId: user.businessId,
+                    businessName: business.name
                 };
             }
         })
@@ -65,6 +78,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.role = user.role;
                 token.businessId = user.businessId;
+                token.businessName = user.businessName;
             }
             return token;
         },
@@ -73,6 +87,7 @@ export const authOptions: NextAuthOptions = {
             if (session.user) {
                 session.user.role = token.role as string;
                 session.user.businessId = token.businessId as string;
+                session.user.businessName = token.businessName as string;
                 session.user.id = token.sub as string;
             }
             return session;
