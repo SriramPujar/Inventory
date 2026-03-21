@@ -84,7 +84,20 @@ export function ChatInterface() {
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-24 sm:bottom-6 right-4 sm:right-6 p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all z-[100] flex items-center gap-2"
+                style={{
+                    position: 'fixed',
+                    bottom: '100px',
+                    right: '24px',
+                    zIndex: 2147483647,
+                    backgroundColor: '#2563eb',
+                    color: 'white',
+                    padding: '16px',
+                    borderRadius: '9999px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                }}
                 aria-label="Open Chat"
             >
                 {isOpen ? <X size={24} /> : (
