@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { Send, Bot, X, MessageSquare, Loader2 } from "lucide-react";
 
 type Message = {
@@ -11,7 +11,7 @@ type Message = {
 };
 
 export function ChatInterface() {
-    const pathname = usePathname() || "";
+    const { status } = useSession();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
@@ -75,7 +75,7 @@ export function ChatInterface() {
         }
     };
 
-    if (pathname === "/" || pathname.startsWith("/login") || pathname.startsWith("/signup")) {
+    if (status !== "authenticated") {
         return null;
     }
 
