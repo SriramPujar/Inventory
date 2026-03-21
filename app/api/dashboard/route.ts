@@ -99,7 +99,9 @@ export async function GET(req: Request) {
             offlineRevenue,
             salesTrends,
             workerPerformance,
-            orderStats
+            orderStats,
+            products,
+            orders
         });
     } catch (error) {
         console.error("Dashboard Error:", error);
