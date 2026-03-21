@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
 }
 
 @theme inline {
@@ -12,15 +12,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Make all gray text utilities darker globally */
+.text-gray-400 { color: #4b5563 !important; }
+.text-gray-500 { color: #374151 !important; }
+.text-gray-600 { color: #1f2937 !important; }
+.text-gray-700 { color: #111827 !important; }
+.text-gray-800 { color: #030712 !important; }
+
+input,
+textarea,
+select {
+  color: #000000;
 }
