@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 import bcrypt from "bcryptjs";
 
 export async function POST(req: Request) {
@@ -11,38 +11,41 @@ export async function POST(req: Request) {
         }
 
         // Check if email already exists
-        const existingUser = await prisma.user.findUnique({
-            where: { email },
-        });
+        const usersRef = db.collection('users');
+        const snapshot = await usersRef.where('email', '==', email).get();
 
-        if (existingUser) {
+        if (!snapshot.empty) {
             return NextResponse.json({ error: "Email already in use" }, { status: 400 });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Transaction to create Business and Admin
-        const result = await prisma.$transaction(async (tx) => {
-            const business = await tx.business.create({
-                data: {
-                    name: businessName,
-                },
+        const result = await db.runTransaction(async (t) => {
+            // Create Business Document
+            const businessRef = db.collection('businesses').doc();
+            t.set(businessRef, {
+                name: businessName,
+                createdAt: new Date(),
+                updatedAt: new Date()
             });
 
-            const user = await tx.user.create({
-                data: {
-                    name: adminName,
-                    email,
-                    password: hashedPassword,
-                    role: "ADMIN",
-                    businessId: business.id,
-                },
+            // Create User Document
+            const userRef = db.collection('users').doc();
+            t.set(userRef, {
+                name: adminName,
+                email,
+                password: hashedPassword,
+                role: "ADMIN",
+                businessId: businessRef.id,
+                createdAt: new Date(),
+                updatedAt: new Date()
             });
 
-            return { business, user };
+            return { businessId: businessRef.id, userId: userRef.id };
         });
 
-        return NextResponse.json({ success: true, businessId: result.business.id });
+        return NextResponse.json({ success: true, businessId: result.businessId });
     } catch (error) {
         console.error("Registration error:", error);
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });

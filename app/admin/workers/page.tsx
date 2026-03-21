@@ -54,13 +54,13 @@ export default function WorkersPage() {
                             </tr>
                         ) : workers.length === 0 ? (
                             <tr>
-                                <td colSpan={6} className="px-6 py-4 text-center text-gray-500">No workers found</td>
+                                <td colSpan={6} className="px-6 py-4 text-center text-gray-700">No workers found</td>
                             </tr>
                         ) : (
                             workers.map((worker) => (
                                 <tr key={worker.id} className="bg-white border-b hover:bg-gray-50">
                                     <td className="px-6 py-4 font-medium text-gray-900 flex items-center gap-2">
-                                        <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-600">
+                                        <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-gray-800">
                                             <User size={16} />
                                         </div>
                                         {worker.name}
@@ -151,7 +151,7 @@ function CreateWorkerModal({ onClose, onSuccess }: any) {
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-md"
+                            className="px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-md"
                         >
                             Cancel
                         </button>

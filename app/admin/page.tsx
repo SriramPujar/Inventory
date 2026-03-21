@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
-import { Loader2, DollarSign, ShoppingBag, Users, TrendingUp } from "lucide-react";
+import { Loader2, IndianRupee, ShoppingBag, Users, TrendingUp } from "lucide-react";
 
 export default function AdminDashboard() {
     const [data, setData] = useState<any>(null);
@@ -52,8 +52,8 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <StatCard
                     title="Total Revenue"
-                    value={`$${data.totalRevenue.toLocaleString()}`}
-                    icon={DollarSign}
+                    value={`₹${data.totalRevenue.toLocaleString()}`}
+                    icon={IndianRupee}
                     color="bg-green-500"
                 />
                 <StatCard
@@ -97,13 +97,13 @@ export default function AdminDashboard() {
                     <h3 className="text-lg font-semibold mb-4">Revenue Split</h3>
                     <div className="flex items-center justify-center h-64 space-x-8">
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-green-600">${data.onlineRevenue.toLocaleString()}</div>
-                            <div className="text-sm text-gray-500">Online</div>
+                            <div className="text-3xl font-bold text-green-600">₹{data.onlineRevenue.toLocaleString()}</div>
+                            <div className="text-sm text-gray-700">Online</div>
                         </div>
                         <div className="h-16 w-px bg-gray-200"></div>
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-blue-600">${data.offlineRevenue.toLocaleString()}</div>
-                            <div className="text-sm text-gray-500">Offline</div>
+                            <div className="text-3xl font-bold text-blue-600">₹{data.offlineRevenue.toLocaleString()}</div>
+                            <div className="text-sm text-gray-700">Offline</div>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
                             {data.workerPerformance.map((worker: any, idx: number) => (
                                 <tr key={idx} className="bg-white border-b hover:bg-gray-50">
                                     <td className="px-6 py-4 font-medium text-gray-900">{worker.name}</td>
-                                    <td className="px-6 py-4">${worker.totalSales.toLocaleString()}</td>
+                                    <td className="px-6 py-4">₹{worker.totalSales.toLocaleString()}</td>
                                     <td className="px-6 py-4 text-green-600">{worker.completedOrders}</td>
                                     <td className="px-6 py-4 text-yellow-600">{worker.pendingOrders}</td>
                                 </tr>
@@ -143,7 +143,7 @@ function StatCard({ title, value, icon: Icon, color }: any) {
     return (
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between">
             <div>
-                <p className="text-sm font-medium text-gray-500">{title}</p>
+                <p className="text-sm font-medium text-gray-700">{title}</p>
                 <h3 className="text-2xl font-bold text-gray-900 mt-1">{value}</h3>
             </div>
             <div className={`p-3 rounded-full ${color} bg-opacity-10`}>

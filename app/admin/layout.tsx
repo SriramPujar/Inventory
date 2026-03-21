@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, ShoppingCart, Package, Users, LogOut } from "lucide-react";
+import { LayoutDashboard, ShoppingCart, Package, Users, LogOut, Menu, X } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import { useState } from "react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     const { data: session } = useSession();
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const navItems = [
         { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -18,11 +20,31 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
     return (
         <div className="flex h-screen bg-gray-100">
+            {/* Mobile Menu Button */}
+            <button
+                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-md"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            >
+                {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Sidebar Overlay */}
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
+
             {/* Sidebar */}
-            <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
-                <div className="p-6 border-b border-gray-200">
+            <aside className={`
+                fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-in-out
+                ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+            `}>
+                <div className="p-6 border-b border-gray-200 mt-12 lg:mt-0">
+                    <h1 className="text-2xl font-extrabold text-blue-600 mb-2">{session?.user?.businessName || "Inventory Management"}</h1>
                     <h2 className="text-xl font-bold text-gray-800">Admin Panel</h2>
-                    <p className="text-sm text-gray-500 truncate">{session?.user?.email}</p>
+                    <p className="text-sm text-gray-700 truncate">{session?.user?.email}</p>
                 </div>
 
                 <nav className="flex-1 p-4 space-y-1">
@@ -33,9 +55,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             <Link
                                 key={item.href}
                                 href={item.href}
+                                onClick={() => setIsSidebarOpen(false)}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${isActive
-                                        ? "bg-blue-50 text-blue-600"
-                                        : "text-gray-700 hover:bg-gray-50"
+                                    ? "bg-blue-50 text-blue-600"
+                                    : "text-gray-700 hover:bg-gray-50"
                                     }`}
                             >
                                 <Icon size={20} />
@@ -47,7 +70,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
                 <div className="p-4 border-t border-gray-200">
                     <button
-                        onClick={() => signOut({ callbackUrl: "/login/admin" })}
+                        onClick={() => signOut({ callbackUrl: "/" })}
                         className="flex items-center gap-3 px-4 py-3 w-full text-left text-sm font-medium text-red-600 hover:bg-red-50 rounded-md transition-colors"
                     >
                         <LogOut size={20} />
@@ -57,7 +80,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto p-8">
+            <main className="flex-1 overflow-y-auto p-8 lg:p-8 pt-20 lg:pt-8">
                 {children}
             </main>
         </div>
