@@ -228,7 +228,7 @@ export class ElectronCapacitorApp {
           this.MainWindow.webContents.closeDevTools();
         }
         CapElectronEventEmitter.emit('CAPELECTRON_DeeplinkListenerInitialized', '');
-      }, 500);
+      }, 1000);
     });
   }
 }
