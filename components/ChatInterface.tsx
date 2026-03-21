@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-// import { Message } from "ai/react"; 
+import { usePathname } from "next/navigation";
 import { Send, Bot, X, MessageSquare, Loader2 } from "lucide-react";
 
 type Message = {
@@ -11,6 +11,7 @@ type Message = {
 };
 
 export function ChatInterface() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
@@ -74,12 +75,17 @@ export function ChatInterface() {
         }
     };
 
+    const hiddenPaths = ["/login/admin", "/login/worker", "/signup", "/"];
+    if (hiddenPaths.includes(pathname)) {
+        return null;
+    }
+
     return (
         <>
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-6 right-6 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all z-40"
+                className="fixed bottom-6 right-4 sm:right-6 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all z-40"
                 aria-label="Open Chat"
             >
                 {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
@@ -87,7 +93,7 @@ export function ChatInterface() {
 
             {/* Chat Window */}
             {isOpen && (
-                <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-40 overflow-hidden animate-in slide-in-from-bottom-5">
+                <div className="fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 h-[500px] max-h-[70vh] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-40 overflow-hidden animate-in slide-in-from-bottom-5">
                     {/* Header */}
                     <div className="bg-blue-600 p-4 text-white flex items-center gap-2">
                         <Bot size={24} />
