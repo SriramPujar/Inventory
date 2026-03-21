@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Plus, Calendar, MapPin, User, Trash2 } from "lucide-react";
 
-export default function OrdersPage() {
+function OrdersContent() {
     const [orders, setOrders] = useState<any[]>([]);
     const [workers, setWorkers] = useState<any[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -142,6 +142,14 @@ export default function OrdersPage() {
                 />
             )}
         </div>
+    );
+}
+
+export default function OrdersPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <OrdersContent />
+        </Suspense>
     );
 }
 

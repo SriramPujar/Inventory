@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Plus, Edit2 } from "lucide-react";
 import { PRODUCT_CATEGORIES, PriceItem, PricingCategory } from "@/app/data/pricingData";
 
-export default function WorkerSalesPage() {
+function WorkerSalesContent() {
     const [products, setProducts] = useState<any[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editProduct, setEditProduct] = useState<any | null>(null);
@@ -104,6 +104,14 @@ export default function WorkerSalesPage() {
                 />
             )}
         </div>
+    );
+}
+
+export default function WorkerSalesPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <WorkerSalesContent />
+        </Suspense>
     );
 }
 
