@@ -11,7 +11,7 @@ type Message = {
 };
 
 export function ChatInterface() {
-    const pathname = usePathname();
+    const pathname = usePathname() || "";
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
@@ -75,8 +75,7 @@ export function ChatInterface() {
         }
     };
 
-    const hiddenPaths = ["/login/admin", "/login/worker", "/signup", "/"];
-    if (hiddenPaths.includes(pathname)) {
+    if (pathname === "/" || pathname.startsWith("/login") || pathname.startsWith("/signup")) {
         return null;
     }
 
@@ -85,15 +84,20 @@ export function ChatInterface() {
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all z-[9999]"
+                className="fixed bottom-24 sm:bottom-6 right-4 sm:right-6 p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-700 transition-all z-[100] flex items-center gap-2"
                 aria-label="Open Chat"
             >
-                {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+                {isOpen ? <X size={24} /> : (
+                    <>
+                        <MessageSquare size={24} />
+                        <span className="font-bold hidden sm:inline">AI Help</span>
+                    </>
+                )}
             </button>
 
             {/* Chat Window */}
             {isOpen && (
-                <div className="fixed inset-4 sm:inset-auto sm:bottom-24 sm:right-6 sm:w-96 sm:h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-[9999] overflow-hidden animate-in sm:slide-in-from-bottom-5 fade-in zoom-in-95">
+                <div className="fixed inset-4 sm:inset-auto sm:bottom-24 sm:right-6 sm:w-96 sm:h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-[100] overflow-hidden animate-in sm:slide-in-from-bottom-5 fade-in zoom-in-95">
                     {/* Header */}
                     <div className="bg-blue-600 p-4 text-white flex items-center gap-2">
                         <Bot size={24} />
