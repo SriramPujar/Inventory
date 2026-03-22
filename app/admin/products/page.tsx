@@ -4,7 +4,6 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Plus, Search, Trash2, Edit2 } from "lucide-react";
 import { PRODUCT_CATEGORIES, PriceItem, PricingCategory } from "@/app/data/pricingData";
-import { App } from "@capacitor/app";
 
 function ProductsContent() {
     const router = useRouter();
@@ -15,11 +14,16 @@ function ProductsContent() {
     const shouldAdd = searchParams.get('add') === 'true';
 
     useEffect(() => {
-        const listener = App.addListener('backButton', () => {
+        // Handle hardware back button via History API (works without native updates)
+        window.history.pushState(null, "", window.location.href);
+
+        const handlePopState = () => {
             router.push('/admin');
-        });
+        };
+
+        window.addEventListener('popstate', handlePopState);
         return () => {
-            listener.then(l => l.remove());
+            window.removeEventListener('popstate', handlePopState);
         };
     }, [router]);
 
