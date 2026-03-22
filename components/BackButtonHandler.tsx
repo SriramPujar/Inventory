@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 /**
- * Universal Android Back Button Handler (v1.2)
- * Includes a visual indicator in the top-left to confirm the trap is active.
- * Uses hard location resets to ensure navigation follows on stubborn devices.
+ * Universal Android Back Button Handler (v1.3 DEBUG)
+ * Includes a HIGH-VISIBILITY debug overlay to diagnose pathname detection.
  */
 export function BackButtonHandler() {
     const router = useRouter();
@@ -14,7 +13,9 @@ export function BackButtonHandler() {
     const [status, setStatus] = useState("BH-Init");
 
     useEffect(() => {
-        // Identify if we are in a sub-section
+        // Log to console for desktop debugging
+        console.log("BH Handler Active Path:", pathname);
+
         const isSubSection = 
             pathname.includes('/orders') || 
             pathname.includes('/products') || 
@@ -22,23 +23,17 @@ export function BackButtonHandler() {
             pathname.includes('/workers');
 
         if (!isSubSection) {
-            setStatus("BH-Standby");
+            setStatus(`BH-Standby | Path: ${pathname}`);
             return;
         }
 
-        // Set status to active so the user can see it's working
-        setStatus("BH-Active-Trap");
+        setStatus(`BH-ACTIVE-TRAP | Path: ${pathname}`);
 
-        // Force a history entry that the browser "stops" on when pressing back
+        // Force a history entry
         window.history.pushState({ trap: true }, "", window.location.href);
 
         const handlePopState = (event: PopStateEvent) => {
-            // Check current location again. If the back button was pressed,
-            // we might have already popped out of the state. 
-            // We force a redirect to the main dash.
             const currentPath = window.location.pathname;
-            
-            // Re-check sub-section status to avoid loops on the dashboard itself
             const stillInSub = 
                 currentPath.includes('/orders') || 
                 currentPath.includes('/products') || 
@@ -46,21 +41,17 @@ export function BackButtonHandler() {
 
             if (stillInSub) {
                 const target = currentPath.startsWith('/admin') ? '/admin' : '/worker';
-                // Using window.location.href for a FORCE redirect that works even if the JS router is confused
                 window.location.href = target;
             }
         };
 
         window.addEventListener('popstate', handlePopState);
-        
-        return () => {
-            window.removeEventListener('popstate', handlePopState);
-        };
+        return () => window.removeEventListener('popstate', handlePopState);
     }, [pathname]);
 
-    // Render a tiny invisible debug token
+    // Render a HIGH VISIBILITY debug bar at the top
     return (
-        <div className="fixed top-0 left-0 p-1 text-[8px] text-red-600/50 bg-white/20 pointer-events-none z-[9999] font-mono">
+        <div className="fixed top-0 left-0 right-0 h-6 bg-yellow-400 text-black text-[10px] flex items-center px-2 z-[99999] border-b border-black font-bold uppercase pointer-events-none">
             {status}
         </div>
     );
