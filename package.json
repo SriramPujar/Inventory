@@ -7,10 +7,14 @@
     "build": "next build --webpack",
     "start": "next start -H 0.0.0.0",
     "lint": "eslint",
-    "mobile": "cap open android"
+    "mobile": "cap open android",
+    "desktop": "cd electron && npm run electron:start",
+    "desktop:build": "cd electron && npm run electron:make"
   },
   "dependencies": {
+    "@capacitor-community/electron": "^5.0.1",
     "@capacitor/android": "^7.4.4",
+    "@capacitor/app": "^8.0.1",
     "@capacitor/cli": "^7.4.4",
     "@capacitor/core": "^7.4.4",
     "@radix-ui/react-dialog": "^1.1.15",

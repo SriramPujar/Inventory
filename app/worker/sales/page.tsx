@@ -1,16 +1,27 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Plus, Edit2 } from "lucide-react";
 import { PRODUCT_CATEGORIES, PriceItem, PricingCategory } from "@/app/data/pricingData";
+import { App } from "@capacitor/app";
 
 function WorkerSalesContent() {
-    const [products, setProducts] = useState<any[]>([]);
+    const router = useRouter();
+    const [products, setProducts] = useState<any | null>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editProduct, setEditProduct] = useState<any | null>(null);
     const searchParams = useSearchParams();
     const shouldAdd = searchParams.get('add') === 'true';
+
+    useEffect(() => {
+        const listener = App.addListener('backButton', () => {
+            router.push('/worker');
+        });
+        return () => {
+            listener.then(l => l.remove());
+        };
+    }, [router]);
 
     useEffect(() => {
         if (shouldAdd) {
@@ -55,7 +66,7 @@ function WorkerSalesContent() {
                         {products.length === 0 ? (
                             <tr><td colSpan={5} className="px-6 py-4 text-center text-gray-700">No sales recorded yet.</td></tr>
                         ) : (
-                            products.map((product) => (
+                            products.map((product: any) => (
                                 <tr key={product.id} className="bg-white border-b hover:bg-gray-50">
                                     <td className="px-6 py-4">{new Date(product.date).toLocaleDateString()}</td>
                                     <td className="px-6 py-4 font-medium text-gray-900">{product.customerName}</td>

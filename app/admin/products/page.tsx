@@ -1,16 +1,27 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Plus, Search, Trash2, Edit2 } from "lucide-react";
 import { PRODUCT_CATEGORIES, PriceItem, PricingCategory } from "@/app/data/pricingData";
+import { App } from "@capacitor/app";
 
 function ProductsContent() {
-    const [products, setProducts] = useState<any[]>([]);
+    const router = useRouter();
+    const [products, setProducts] = useState<any | null>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editProduct, setEditProduct] = useState<any | null>(null);
     const searchParams = useSearchParams();
     const shouldAdd = searchParams.get('add') === 'true';
+
+    useEffect(() => {
+        const listener = App.addListener('backButton', () => {
+            router.push('/admin');
+        });
+        return () => {
+            listener.then(l => l.remove());
+        };
+    }, [router]);
 
     useEffect(() => {
         if (shouldAdd) {
@@ -75,7 +86,7 @@ function ProductsContent() {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((product) => (
+                        {products.map((product: any) => (
                             <tr key={product.id} className="bg-white border-b hover:bg-gray-50">
                                 <td className="px-6 py-4">{new Date(product.date).toLocaleDateString()}</td>
                                 <td className="px-6 py-4 font-medium text-gray-900">{product.customerName}</td>

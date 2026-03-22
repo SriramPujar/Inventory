@@ -1,16 +1,27 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Plus, Calendar, MapPin, User, Trash2 } from "lucide-react";
+import { App } from "@capacitor/app";
 
 function OrdersContent() {
+    const router = useRouter();
     const [orders, setOrders] = useState<any[]>([]);
     const [workers, setWorkers] = useState<any[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editOrderId, setEditOrderId] = useState<string | null>(null);
     const searchParams = useSearchParams();
     const shouldAdd = searchParams.get('add') === 'true';
+
+    useEffect(() => {
+        const listener = App.addListener('backButton', () => {
+            router.push('/admin');
+        });
+        return () => {
+            listener.then(l => l.remove());
+        };
+    }, [router]);
 
     useEffect(() => {
         if (shouldAdd) {
