@@ -55,19 +55,14 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                 <StatCard
                     title="Daily Purchases"
-                    value={(() => {
-                        const today = new Date().toDateString();
-                        const todayOrd = (data.orders || []).filter((o: any) => new Date(o.date).toDateString() === today).length;
-                        const todayProd = (data.products || []).filter((p: any) => new Date(p.date).toDateString() === today).length;
-                        return todayOrd + todayProd;
-                    })()}
+                    value={data.salesTrends?.[data.salesTrends.length - 1]?.count || 0}
                     icon={ShoppingCart}
                     color="bg-teal-500"
                     onClick={() => setSelectedCard('DAILY')}
                 />
                 <StatCard
                     title="Total Products"
-                    value={data.products?.length || 0}
+                    value={data.counts?.products || 0}
                     icon={Package}
                     color="bg-indigo-500"
                     onClick={() => setSelectedCard('PRODUCTS')}
@@ -149,36 +144,29 @@ export default function AdminDashboard() {
                 </div>
             </div>
 
-            {/* Worker Performance */}
+            {/* Worker Performance (Simplified for Speed) */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                <h3 className="text-lg font-semibold mb-4">Worker Performance</h3>
-                <div className="overflow-x-auto">
-                    <table className="w-full text-sm text-left">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-                            <tr>
-                                <th className="px-6 py-3">Worker Name</th>
-                                <th className="px-6 py-3">Total Sales</th>
-                                <th className="px-6 py-3">Completed Orders</th>
-                                <th className="px-6 py-3">Pending Orders</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.workerPerformance.map((worker: any, idx: number) => (
-                                <tr key={idx} className="bg-white border-b hover:bg-gray-50">
-                                    <td className="px-6 py-4 font-medium text-gray-900">{worker.name}</td>
-                                    <td className="px-6 py-4">₹{worker.totalSales.toLocaleString()}</td>
-                                    <td className="px-6 py-4 text-green-600">{worker.completedOrders}</td>
-                                    <td className="px-6 py-4 text-yellow-600">{worker.pendingOrders}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                <h3 className="text-lg font-semibold mb-4">Business Resources</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="p-4 border border-gray-100 rounded-lg bg-gray-50 flex items-center justify-between">
+                        <div>
+                            <div className="text-sm text-gray-600">Active Workers</div>
+                            <div className="text-2xl font-bold">{data.counts.workers}</div>
+                        </div>
+                        <Users className="text-indigo-600" size={32} />
+                    </div>
+                    <div className="p-4 border border-gray-100 rounded-lg bg-gray-50 flex items-center justify-between">
+                        <div>
+                            <div className="text-sm text-gray-600">Total Catalog Items</div>
+                            <div className="text-2xl font-bold">{data.counts.products}</div>
+                        </div>
+                        <Package className="text-blue-600" size={32} />
+                    </div>
                 </div>
             </div>
             {selectedCard && (
                 <DetailsModal 
                     type={selectedCard}
-                    data={data}
                     onClose={() => setSelectedCard(null)}
                 />
             )}
@@ -203,32 +191,41 @@ function StatCard({ title, value, icon: Icon, color, onClick }: any) {
     );
 }
 
-function DetailsModal({ type, data, onClose }: { type: string, data: any, onClose: () => void }) {
-    let listData: any[] = [];
+function DetailsModal({ type, onClose }: { type: string; onClose: () => void }) {
+    const [listData, setListData] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
     let title = "";
 
-    if (type === 'PRODUCTS') {
-        title = "Total Products Sold";
-        listData = data.products || [];
-    } else if (type === 'DAILY') {
-        title = "Today's Purchases & Orders";
+    useEffect(() => {
+        fetch(`/api/dashboard/details?type=${type}`)
+            .then((res) => res.json())
+            .then((resData) => {
+                setListData(resData.data || []);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                setLoading(false);
+            });
+    }, [type]);
+
+    if (type === "PRODUCTS") title = "Total Products Sold";
+    else if (type === "DAILY") title = "Today's Activity";
+    else if (type === "TOTAL_ORDERS") title = "Total Orders";
+    else if (type === "PENDING") title = "Pending Orders";
+    else if (type === "COMPLETED") title = "Completed Orders";
+
+    // Sub-processing for DAILY inside modal to keep it fast
+    let processedData = listData;
+    if (type === "DAILY") {
         const today = new Date().toDateString();
-        const todayOrders = (data.orders || [])
-            .filter((o: any) => new Date(o.date).toDateString() === today)
-            .map((o: any) => ({ ...o, tableDesc: o.orderName, tableType: `Order (${o.status})` }));
-        const todayProducts = (data.products || [])
-            .filter((p: any) => new Date(p.date).toDateString() === today)
-            .map((p: any) => ({ ...p, tableDesc: p.productName, tableType: `Product (${p.paymentMethod})` }));
-        listData = [...todayOrders, ...todayProducts].sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    } else if (type === 'TOTAL_ORDERS') {
-        title = "Total Orders";
-        listData = data.orders || [];
-    } else if (type === 'PENDING') {
-        title = "Pending Orders";
-        listData = (data.orders || []).filter((o: any) => o.status === "PENDING");
-    } else if (type === 'COMPLETED') {
-        title = "Completed Orders";
-        listData = (data.orders || []).filter((o: any) => o.status === "COMPLETED");
+        processedData = listData
+            .filter((item: any) => new Date(item.date).toDateString() === today)
+            .map((item: any) => ({
+                ...item,
+                tableDesc: item.productName || item.orderName,
+                tableType: item.productName ? `Product (${item.paymentMethod})` : `Order (${item.status})`,
+            }));
     }
 
     return (
@@ -236,97 +233,112 @@ function DetailsModal({ type, data, onClose }: { type: string, data: any, onClos
             <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
                 <div className="p-4 sm:p-6 border-b border-gray-200 flex items-center justify-between bg-gray-50">
                     <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h2>
-                    <button 
-                        onClick={onClose} 
+                    <button
+                        onClick={onClose}
                         className="text-gray-500 hover:bg-gray-200 rounded-full p-2 transition-colors"
                         aria-label="Close"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
                     </button>
                 </div>
-                
-                <div className="p-4 sm:p-6 overflow-y-auto flex-1">
-                    <div className="border border-gray-200 rounded-lg overflow-x-auto">
-                        <table className="w-full text-sm text-left whitespace-nowrap">
-                            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-                                <tr>
-                                    <th className="px-4 py-3">Date</th>
-                                    <th className="px-4 py-3">Customer</th>
-                                    {type === 'PRODUCTS' ? (
-                                        <>
-                                            <th className="px-4 py-3">Product</th>
-                                            <th className="px-4 py-3">Method</th>
-                                        </>
-                                    ) : type === 'DAILY' ? (
-                                        <>
-                                            <th className="px-4 py-3">Description</th>
-                                            <th className="px-4 py-3">Type</th>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <th className="px-4 py-3">Description</th>
-                                            <th className="px-4 py-3">Status</th>
-                                        </>
-                                    )}
-                                    <th className="px-4 py-3 text-right">Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {listData.length === 0 ? (
-                                    <tr>
-                                        <td colSpan={5} className="px-4 py-8 text-center text-gray-500">
-                                            No records found.
-                                        </td>
-                                    </tr>
-                                ) : (
-                                    listData.map((item, idx) => (
-                                        <tr key={idx} className="bg-white border-b hover:bg-gray-50">
-                                            <td className="px-4 py-3">
-                                                {new Date(item.date).toLocaleDateString()}
-                                            </td>
-                                            <td className="px-4 py-3 font-medium text-gray-900">
-                                                {item.customerName}
-                                            </td>
-                                            
-                                            {/* Column 3 & 4 */}
-                                            {type === 'PRODUCTS' ? (
-                                                <>
-                                                    <td className="px-4 py-3 truncate max-w-xs">{item.productName}</td>
-                                                    <td className="px-4 py-3">
-                                                        <span className={`px-2 py-1 rounded-full text-xs ${item.paymentMethod === 'ONLINE' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>
-                                                            {item.paymentMethod}
-                                                        </span>
-                                                    </td>
-                                                </>
-                                            ) : type === 'DAILY' ? (
-                                                <>
-                                                    <td className="px-4 py-3 truncate max-w-xs">{item.tableDesc}</td>
-                                                    <td className="px-4 py-3 text-xs text-gray-600 font-medium">{item.tableType}</td>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <td className="px-4 py-3 truncate max-w-xs">{item.orderName}</td>
-                                                    <td className="px-4 py-3">
-                                                        <span className={`px-2 py-1 rounded-full text-xs font-semibold
-                                                            ${item.status === 'COMPLETED' ? 'bg-green-100 text-green-800' : ''}
-                                                            ${item.status === 'IN_PROGRESS' ? 'bg-blue-100 text-blue-800' : ''}
-                                                            ${item.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' : ''}
-                                                        `}>
-                                                            {item.status}
-                                                        </span>
-                                                    </td>
-                                                </>
-                                            )}
 
-                                            <td className="px-4 py-3 text-right font-semibold text-gray-900">
-                                                ₹{item.amount?.toLocaleString()}
+                <div className="p-4 sm:p-6 overflow-y-auto flex-1">
+                    {loading ? (
+                        <div className="flex flex-col items-center justify-center py-12">
+                            <Loader2 className="animate-spin text-blue-600 mb-2" size={32} />
+                            <p className="text-gray-500">Loading details...</p>
+                        </div>
+                    ) : (
+                        <div className="border border-gray-200 rounded-lg overflow-x-auto">
+                            <table className="w-full text-sm text-left whitespace-nowrap">
+                                <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                                    <tr>
+                                        <th className="px-4 py-3">Date</th>
+                                        <th className="px-4 py-3">Customer</th>
+                                        {type === "PRODUCTS" ? (
+                                            <>
+                                                <th className="px-4 py-3">Product</th>
+                                                <th className="px-4 py-3">Method</th>
+                                            </>
+                                        ) : type === "DAILY" ? (
+                                            <>
+                                                <th className="px-4 py-3">Description</th>
+                                                <th className="px-4 py-3">Type</th>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <th className="px-4 py-3">Description</th>
+                                                <th className="px-4 py-3">Status</th>
+                                            </>
+                                        )}
+                                        <th className="px-4 py-3 text-right">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {processedData.length === 0 ? (
+                                        <tr>
+                                            <td colSpan={5} className="px-4 py-8 text-center text-gray-500">
+                                                No records found.
                                             </td>
                                         </tr>
-                                    ))
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
+                                    ) : (
+                                        processedData.map((item, idx) => (
+                                            <tr key={idx} className="bg-white border-b hover:bg-gray-50">
+                                                <td className="px-4 py-3">{new Date(item.date).toLocaleDateString()}</td>
+                                                <td className="px-4 py-3 font-medium text-gray-900">{item.customerName}</td>
+
+                                                {/* Column 3 & 4 */}
+                                                {type === "PRODUCTS" ? (
+                                                    <>
+                                                        <td className="px-4 py-3 truncate max-w-xs">{item.productName}</td>
+                                                        <td className="px-4 py-3">
+                                                            <span
+                                                                className={`px-2 py-1 rounded-full text-xs ${
+                                                                    item.paymentMethod === "ONLINE"
+                                                                        ? "bg-green-100 text-green-800"
+                                                                        : "bg-gray-100 text-gray-800"
+                                                                }`}
+                                                            >
+                                                                {item.paymentMethod}
+                                                            </span>
+                                                        </td>
+                                                    </>
+                                                ) : type === "DAILY" ? (
+                                                    <>
+                                                        <td className="px-4 py-3 truncate max-w-xs">{item.tableDesc}</td>
+                                                        <td className="px-4 py-3 text-xs text-gray-600 font-medium">
+                                                            {item.tableType}
+                                                        </td>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <td className="px-4 py-3 truncate max-w-xs">{item.orderName}</td>
+                                                        <td className="px-4 py-3">
+                                                            <span
+                                                                className={`px-2 py-1 rounded-full text-xs font-semibold
+                                                                ${item.status === "COMPLETED" ? "bg-green-100 text-green-800" : ""}
+                                                                ${item.status === "IN_PROGRESS" ? "bg-blue-100 text-blue-800" : ""}
+                                                                ${item.status === "PENDING" ? "bg-yellow-100 text-yellow-800" : ""}
+                                                            `}
+                                                            >
+                                                                {item.status}
+                                                            </span>
+                                                        </td>
+                                                    </>
+                                                )}
+
+                                                <td className="px-4 py-3 text-right font-semibold text-gray-900">
+                                                    ₹{item.amount?.toLocaleString()}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

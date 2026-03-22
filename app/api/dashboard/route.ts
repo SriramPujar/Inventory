@@ -15,25 +15,34 @@ export async function GET(req: Request) {
         const businessId = session.user.businessId;
         const now = new Date();
 
-        // Parallelize Database Queries
-        const [productsSnapshot, workersSnapshot, ordersSnapshot] = await Promise.all([
-            db.collection('products').where('businessId', '==', businessId).get(),
-            db.collection('users').where('businessId', '==', businessId).where('role', '==', 'WORKER').get(),
-            db.collection('orders').where('businessId', '==', businessId).get()
+        // Optimized Aggregated Queries
+        const [
+            productsCount,
+            workersCount,
+            ordersTotal,
+            ordersPending,
+            ordersCompleted,
+            ordersInProgress,
+            revenueData
+        ] = await Promise.all([
+            db.collection('products').where('businessId', '==', businessId).count().get(),
+            db.collection('users').where('businessId', '==', businessId).where('role', '==', 'WORKER').count().get(),
+            db.collection('orders').where('businessId', '==', businessId).count().get(),
+            db.collection('orders').where('businessId', '==', businessId).where('status', '==', 'PENDING').count().get(),
+            db.collection('orders').where('businessId', '==', businessId).where('status', '==', 'COMPLETED').count().get(),
+            db.collection('orders').where('businessId', '==', businessId).where('status', '==', 'IN_PROGRESS').count().get(),
+            // Only fetch small necessary fields for revenue and trends
+            db.collection('products').where('businessId', '==', businessId).select('amount', 'paymentMethod', 'date').get()
         ]);
 
-        const products = productsSnapshot.docs.map(doc => {
+        const products = revenueData.docs.map(doc => {
             const data = doc.data();
             return {
-                ...data,
-                id: doc.id,
-                date: data.date.toDate ? data.date.toDate() : new Date(data.date),
-                createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(data.createdAt || now),
+                amount: data.amount || 0,
+                paymentMethod: data.paymentMethod || "OFFLINE",
+                date: data.date?.toDate ? data.date.toDate() : new Date(data.date || now)
             };
         });
-
-        const workers = workersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
         // Total Revenue (Online vs Offline)
         const totalRevenue = products.reduce((acc: number, curr: any) => acc + (curr.amount || 0), 0);
@@ -55,42 +64,21 @@ export async function GET(req: Request) {
             });
         }
 
-        // Worker Performance
-        // Note: In Firestore, we don't have "include" relations. We have to manually join.
-        // We already have all products and orders for the business, so we can filter in memory.
-
-        const workerPerformance = workers.map((w: any) => {
-            // Sales by this worker (assuming products have createdById)
-            const workerSales = products.filter((p: any) => p.createdById === w.id);
-
-            // Orders assigned to this worker
-            const workerOrders = orders.filter((o: any) => o.workerId === w.id);
-
-            return {
-                name: w.name,
-                totalSales: workerSales.reduce((acc, curr: any) => acc + (curr.amount || 0), 0),
-                completedOrders: workerOrders.filter((o: any) => o.status === "COMPLETED").length,
-                pendingOrders: workerOrders.filter((o: any) => o.status === "PENDING").length
-            };
-        });
-
-        // Order Stats
-        const orderStats = {
-            total: orders.length,
-            pending: orders.filter((o: any) => o.status === "PENDING").length,
-            completed: orders.filter((o: any) => o.status === "COMPLETED").length,
-            inProgress: orders.filter((o: any) => o.status === "IN_PROGRESS").length
-        };
-
         return NextResponse.json({
             totalRevenue,
             onlineRevenue,
             offlineRevenue,
             salesTrends,
-            workerPerformance,
-            orderStats,
-            products,
-            orders
+            orderStats: {
+                total: ordersTotal.data().count,
+                pending: ordersPending.data().count,
+                completed: ordersCompleted.data().count,
+                inProgress: ordersInProgress.data().count
+            },
+            counts: {
+                products: productsCount.data().count,
+                workers: workersCount.data().count
+            }
         });
     } catch (error) {
         console.error("Dashboard Error:", error);

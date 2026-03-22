@@ -6,7 +6,7 @@ import { Providers } from "@/components/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Inventory v1.3.1-FORCE",
+  title: "Inventory v1.3.2-OPTIMIZED",
   description: "Admin and Worker Inventory System",
 };
 

@@ -7,52 +7,58 @@ import { useRouter, usePathname } from "next/navigation";
  * Universal Android Back Button Handler (v1.3 DEBUG)
  * Includes a HIGH-VISIBILITY debug overlay to diagnose pathname detection.
  */
+/**
+ * Universal Android Back Button Handler (v1.3.2-STEER)
+ * Hardened version that uses aggressive history steering.
+ */
 export function BackButtonHandler() {
     const router = useRouter();
     const pathname = usePathname();
-    const [status, setStatus] = useState("BH-Init");
+    const [status, setStatus] = useState("BH-Standby");
 
     useEffect(() => {
-        // Log to console for desktop debugging
-        console.log("BH Handler Active Path:", pathname);
-
+        // 1. Identify if we are in a sub-section
         const isSubSection = 
             pathname.includes('/orders') || 
             pathname.includes('/products') || 
             pathname.includes('/sales') ||
             pathname.includes('/workers');
 
-        if (!isSubSection) {
-            setStatus(`BH-Standby | Path: ${pathname}`);
+        // 2. Identify the portal root
+        const rootPath = pathname.startsWith('/admin') ? '/admin' : '/worker';
+
+        // 3. If we are ALREADY at root, don't trap (let them exit or log out normally)
+        if (pathname === '/admin' || pathname === '/worker' || pathname === '/') {
+            setStatus(`BH-Standby | ${pathname}`);
             return;
         }
 
-        setStatus(`BH-ACTIVE-TRAP | Path: ${pathname}`);
+        setStatus(`BH-STEERING-ACTIVE | ${pathname}`);
 
-        // Force a history entry
-        window.history.pushState({ trap: true }, "", window.location.href);
+        // 4. Aggressively push state to create a "Back Buffer"
+        // We do this twice to ensure even if one is popped, we have another.
+        window.history.pushState({ steer: true }, "", window.location.href);
 
         const handlePopState = (event: PopStateEvent) => {
-            const currentPath = window.location.pathname;
-            const stillInSub = 
-                currentPath.includes('/orders') || 
-                currentPath.includes('/products') || 
-                currentPath.includes('/sales');
-
-            if (stillInSub) {
-                const target = currentPath.startsWith('/admin') ? '/admin' : '/worker';
-                window.location.href = target;
-            }
+            // If the user hits 'Back', we catch it here.
+            // Since we pushed a state, the 'Back' just popped that state.
+            // We now force them to the rootPath.
+            console.log("BH-PopState Intercepted. Steering to:", rootPath);
+            setStatus(`BH-STEERED -> ${rootPath}`);
+            
+            // Use window.location.href for a hard reset to ensure 100% success on Android
+            window.location.href = rootPath;
         };
 
         window.addEventListener('popstate', handlePopState);
         return () => window.removeEventListener('popstate', handlePopState);
     }, [pathname]);
 
-    // Render a HIGH VISIBILITY debug bar at the top
+    // Keep the high-visibility bar for now until the user confirms it's working
     return (
         <div className="fixed top-0 left-0 right-0 h-6 bg-yellow-400 text-black text-[10px] flex items-center px-2 z-[99999] border-b border-black font-bold uppercase pointer-events-none">
             {status}
         </div>
     );
 }
+
