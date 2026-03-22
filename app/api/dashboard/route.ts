@@ -15,26 +15,30 @@ export async function GET(req: Request) {
         const businessId = session.user.businessId;
         const now = new Date();
 
-        // Fetch Products
-        const productsSnapshot = await db.collection('products')
-            .where('businessId', '==', businessId)
-            .get();
+        // Parallelize Database Queries
+        const [productsSnapshot, workersSnapshot, ordersSnapshot] = await Promise.all([
+            db.collection('products').where('businessId', '==', businessId).get(),
+            db.collection('users').where('businessId', '==', businessId).where('role', '==', 'WORKER').get(),
+            db.collection('orders').where('businessId', '==', businessId).get()
+        ]);
 
         const products = productsSnapshot.docs.map(doc => {
             const data = doc.data();
             return {
                 ...data,
                 id: doc.id,
-                // Convert Firestore Timestamps to Dates
                 date: data.date.toDate ? data.date.toDate() : new Date(data.date),
                 createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(data.createdAt || now),
             };
         });
 
+        const workers = workersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
         // Total Revenue (Online vs Offline)
-        const totalRevenue = products.reduce((acc, curr: any) => acc + (curr.amount || 0), 0);
-        const onlineRevenue = products.filter((p: any) => p.paymentMethod === "ONLINE").reduce((acc, curr: any) => acc + (curr.amount || 0), 0);
-        const offlineRevenue = products.filter((p: any) => p.paymentMethod === "OFFLINE").reduce((acc, curr: any) => acc + (curr.amount || 0), 0);
+        const totalRevenue = products.reduce((acc: number, curr: any) => acc + (curr.amount || 0), 0);
+        const onlineRevenue = products.filter((p: any) => p.paymentMethod === "ONLINE").reduce((acc: number, curr: any) => acc + (curr.amount || 0), 0);
+        const offlineRevenue = products.filter((p: any) => p.paymentMethod === "OFFLINE").reduce((acc: number, curr: any) => acc + (curr.amount || 0), 0);
 
         // Sales Trends (Last 7 days)
         const salesTrends = [];
@@ -46,25 +50,10 @@ export async function GET(req: Request) {
             const daySales = products.filter((p: any) => p.date >= start && p.date <= end);
             salesTrends.push({
                 date: date.toLocaleDateString(),
-                amount: daySales.reduce((acc, curr: any) => acc + (curr.amount || 0), 0),
+                amount: daySales.reduce((acc: number, curr: any) => acc + (curr.amount || 0), 0),
                 count: daySales.length
             });
         }
-
-        // Fetch Workers
-        const workersSnapshot = await db.collection('users')
-            .where('businessId', '==', businessId)
-            .where('role', '==', 'WORKER')
-            .get();
-
-        const workers = workersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-        // Fetch Orders
-        const ordersSnapshot = await db.collection('orders')
-            .where('businessId', '==', businessId)
-            .get();
-
-        const orders = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
         // Worker Performance
         // Note: In Firestore, we don't have "include" relations. We have to manually join.

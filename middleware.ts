@@ -5,12 +5,8 @@ import type { NextRequest } from "next/server";
 export async function middleware(req: NextRequest) {
     const path = req.nextUrl.pathname;
 
-    console.log("Middleware Path:", path);
-
-    // Get the secret - NextAuth uses this specific env var
+    // console.log("Middleware Path:", path);
     const secret = process.env.NEXTAUTH_SECRET;
-    console.log("Middleware Secret Present:", !!secret);
-    console.log("Middleware Cookies:", req.cookies.getAll().map(c => c.name).join(", "));
 
     if (!secret) {
         console.error("CRITICAL: NEXTAUTH_SECRET is not defined in middleware!");
@@ -26,10 +22,9 @@ export async function middleware(req: NextRequest) {
             secureCookie: process.env.NODE_ENV === "production"
         });
 
-        console.log("Middleware Token:", token ? "Found" : "Missing");
+        // console.log("Middleware Token:", token ? "Found" : "Missing");
         if (token) {
-            console.log("Token Role:", token.role);
-            console.log("Token Sub:", token.sub);
+            // console.log("Token Role:", token.role);
         }
 
         // Protect Admin routes
