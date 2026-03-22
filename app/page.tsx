@@ -1,12 +1,27 @@
 import Link from "next/link";
 import { Shield, Users } from "lucide-react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  // Check if user is already logged in
+  const session = await getServerSession(authOptions);
+
+  if (session?.user) {
+    // Auto-redirect to appropriate dashboard based on role
+    if (session.user.role === "ADMIN") {
+      redirect("/admin");
+    } else if (session.user.role === "WORKER") {
+      redirect("/worker");
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center p-4">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Inventory Management System</h1>
-        <p className="text-xl text-gray-600">Select your portal to continue</p>
+        <p className="text-xl text-gray-800">Select your portal to continue</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
@@ -16,7 +31,7 @@ export default function Home() {
               <Shield className="text-blue-600 group-hover:text-white transition-colors" size={32} />
             </div>
             <h2 className="text-2xl font-bold text-center text-gray-900 mb-2">Admin Portal</h2>
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-700">
               Manage business, workers, orders, and view analytics.
             </p>
           </div>
@@ -28,7 +43,7 @@ export default function Home() {
               <Users className="text-green-600 group-hover:text-white transition-colors" size={32} />
             </div>
             <h2 className="text-2xl font-bold text-center text-gray-900 mb-2">Worker Portal</h2>
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-700">
               View assigned orders, update status, and record sales.
             </p>
           </div>
