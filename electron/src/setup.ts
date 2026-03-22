@@ -130,6 +130,7 @@ export class ElectronCapacitorApp {
         // Use preload to inject the electron varriant overrides for capacitor plugins.
         // preload: join(app.getAppPath(), "node_modules", "@capacitor-community", "electron", "dist", "runtime", "electron-rt.js"),
         preload: preloadPath,
+        devTools: false,
       },
     });
     this.mainWindowState.manage(this.MainWindow);
@@ -204,11 +205,13 @@ export class ElectronCapacitorApp {
     });
 
     this.MainWindow.webContents.on('will-navigate', (event, newURL) => {
-      const isInternal = newURL.includes(this.customScheme) || 
-                        (this.CapacitorFileConfig.server?.url && newURL.includes(this.CapacitorFileConfig.server.url));
+      const liveUrl = "https://inventory-ten-azure.vercel.app";
+      const isInternal = newURL.includes(this.customScheme) || newURL.startsWith(liveUrl);
       
       if (!isInternal) {
+        // If navigating to the base domain (e.g. after signout), load the live URL
         event.preventDefault();
+        this.MainWindow.loadURL(liveUrl);
       }
     });
 
