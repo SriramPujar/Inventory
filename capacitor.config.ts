@@ -6,7 +6,8 @@ const config: CapacitorConfig = {
   webDir: 'out',
   server: {
     url: 'https://inventory-ten-azure.vercel.app',
-    cleartext: true
+    cleartext: true,
+    allowNavigation: ['inventory-ten-azure.vercel.app']
   },
   plugins: {
     CapacitorHttp: {

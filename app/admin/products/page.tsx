@@ -14,20 +14,6 @@ function ProductsContent() {
     const shouldAdd = searchParams.get('add') === 'true';
 
     useEffect(() => {
-        // Handle hardware back button via History API (works without native updates)
-        window.history.pushState(null, "", window.location.href);
-
-        const handlePopState = () => {
-            router.push('/admin');
-        };
-
-        window.addEventListener('popstate', handlePopState);
-        return () => {
-            window.removeEventListener('popstate', handlePopState);
-        };
-    }, [router]);
-
-    useEffect(() => {
         if (shouldAdd) {
             setIsModalOpen(true);
         }
