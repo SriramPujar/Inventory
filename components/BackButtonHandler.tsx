@@ -33,7 +33,7 @@ export function BackButtonHandler() {
             return;
         }
 
-        setStatus(`BH-STEERING-ACTIVE | ${pathname}`);
+        setStatus(`BH-Active-Trap | ${pathname}`);
 
         // 4. Aggressively push state to create a "Back Buffer"
         // We do this twice to ensure even if one is popped, we have another.
@@ -56,7 +56,8 @@ export function BackButtonHandler() {
 
     // Keep the high-visibility bar for now until the user confirms it's working
     return (
-        <div className="fixed top-0 left-0 right-0 h-6 bg-yellow-400 text-black text-[10px] flex items-center px-2 z-[99999] border-b border-black font-bold uppercase pointer-events-none">
+        <div className="fixed top-0 left-0 right-0 h-8 bg-yellow-400 text-black text-[12px] flex items-center justify-center px-2 z-[99999] border-b-2 border-black font-bold uppercase pointer-events-none animate-pulse">
+            <span className="bg-red-600 text-white px-1 mr-2">V1.3.2</span>
             {status}
         </div>
     );
