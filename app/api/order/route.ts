@@ -54,24 +54,29 @@ export async function GET(req: Request) {
 
     try {
         const ordersRef = db.collection('orders');
-        const snapshot = await ordersRef.where('businessId', '==', session.user.businessId).get();
+        let query: admin.firestore.Query = ordersRef.where('businessId', '==', session.user.businessId);
 
-        let orders = snapshot.docs.map(doc => {
+        // Optimize for Worker: Filter by assigned worker or unassigned
+        // Note: Firestore 'in' query can handle this
+        if (session.user.role === "WORKER") {
+            query = query.where('workerId', 'in', [session.user.id, null]);
+        }
+
+        const snapshot = await query.get();
+
+        const orders = snapshot.docs.map(doc => {
             const data = doc.data();
             return {
                 id: doc.id,
                 ...data,
-                date: data.date.toDate ? data.date.toDate() : new Date(data.date),
-                createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(data.createdAt || new Date()),
-                updatedAt: data.updatedAt?.toDate ? data.updatedAt.toDate() : new Date(data.updatedAt || new Date()),
+                date: data.date?.toDate ? data.date.toDate() : new Date(data.date || Date.now()),
+                createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(data.createdAt || Date.now()),
+                updatedAt: data.updatedAt?.toDate ? data.updatedAt.toDate() : new Date(data.updatedAt || Date.now()),
             };
         });
 
-        if (session.user.role === "WORKER") {
-            orders = orders.filter((o: any) => o.workerId === session.user.id || o.workerId === null);
-        }
-
-        // Sort by date desc
+        // Still sort in memory for now to avoid requiring more complex composite indices
+        // Since we filtered by business and worker, the dataset should be small enough (<1000 orders)
         orders.sort((a: any, b: any) => b.date.getTime() - a.date.getTime());
 
         return NextResponse.json(orders);

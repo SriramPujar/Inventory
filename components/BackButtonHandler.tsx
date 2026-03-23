@@ -2,62 +2,78 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { App } from '@capacitor/app';
 
 /**
- * Universal Android Back Button Handler (v1.3 DEBUG)
- * Includes a HIGH-VISIBILITY debug overlay to diagnose pathname detection.
- */
-/**
- * Universal Android Back Button Handler (v1.3.2-STEER)
- * Hardened version that uses aggressive history steering.
+ * Universal Android Back Button Handler (v1.3.2-CAPACITOR)
+ * Hardened version that uses Capacitor hardware listeners + PopState steering.
  */
 export function BackButtonHandler() {
     const router = useRouter();
     const pathname = usePathname();
-    const [status, setStatus] = useState("BH-Standby");
+    const [status, setStatus] = useState("BH-Active-Trap | Idle");
 
     useEffect(() => {
-        // 1. Identify if we are in a sub-section
-        const isSubSection = 
-            pathname.includes('/orders') || 
-            pathname.includes('/products') || 
-            pathname.includes('/sales') ||
-            pathname.includes('/workers');
+        // 1. Identify the portal root
+        const isAdmin = pathname.startsWith('/admin');
+        const isWorker = pathname.startsWith('/worker');
+        const rootPath = isAdmin ? '/admin' : (isWorker ? '/worker' : '/');
 
-        // 2. Identify the portal root
-        const rootPath = pathname.startsWith('/admin') ? '/admin' : '/worker';
-
-        // 3. If we are ALREADY at root, don't trap (let them exit or log out normally)
-        if (pathname === '/admin' || pathname === '/worker' || pathname === '/') {
-            setStatus(`BH-Standby | ${pathname}`);
-            return;
-        }
-
+        console.log("BH-Trap Initialization for path:", pathname, "Root:", rootPath);
         setStatus(`BH-Active-Trap | ${pathname}`);
 
-        // 4. Aggressively push state to create a "Back Buffer"
-        // We do this twice to ensure even if one is popped, we have another.
+        // 2. Capacitor Hardware Listener (for Android/iOS App)
+        const setupCapacitor = async () => {
+            try {
+                const listener = await App.addListener('backButton', ({ canGoBack }) => {
+                    console.log("Hardware Back Button Intercepted. canGoBack:", canGoBack);
+                    
+                    if (pathname !== rootPath && !pathname.startsWith('/login')) {
+                        console.log("Steering hardware back to root:", rootPath);
+                        setStatus(`BH-STEER (HW) -> ${rootPath}`);
+                        window.location.href = rootPath; // Hard redirect
+                    } else {
+                        console.log("At root or login. Trapping to prevent exit.");
+                        setStatus(`BH-TRAP (HW) | Stay at ${rootPath}`);
+                    }
+                });
+                return listener;
+            } catch (e) {
+                console.log("Capacitor App plugin not available - using Web fallback.");
+                return null;
+            }
+        };
+
+        const capListenerPromise = setupCapacitor();
+
+        // 3. Web/Browser PopState Logic
+        // Always push a state to created a buffer
         window.history.pushState({ steer: true }, "", window.location.href);
 
         const handlePopState = (event: PopStateEvent) => {
-            // If the user hits 'Back', we catch it here.
-            // Since we pushed a state, the 'Back' just popped that state.
-            // We now force them to the rootPath.
-            console.log("BH-PopState Intercepted. Steering to:", rootPath);
-            setStatus(`BH-STEERED -> ${rootPath}`);
-            
-            // Use window.location.href for a hard reset to ensure 100% success on Android
-            window.location.href = rootPath;
+            if (pathname !== rootPath && !pathname.startsWith('/login')) {
+                console.log("BH-PopState Intercepted. Steering to:", rootPath);
+                setStatus(`BH-STEER (WEB) -> ${rootPath}`);
+                window.location.href = rootPath;
+            } else {
+                console.log("BH-PopState at root. Trapped.");
+                setStatus(`BH-TRAP (WEB) | Stay at ${rootPath}`);
+                window.history.pushState({ steer: true }, "", window.location.href);
+            }
         };
 
         window.addEventListener('popstate', handlePopState);
-        return () => window.removeEventListener('popstate', handlePopState);
+        
+        return () => {
+            window.removeEventListener('popstate', handlePopState);
+            capListenerPromise.then(l => l?.remove());
+        };
     }, [pathname]);
 
-    // Keep the high-visibility bar for now until the user confirms it's working
+    // High-visibility pulsing bar
     return (
         <div className="fixed top-0 left-0 right-0 h-8 bg-yellow-400 text-black text-[12px] flex items-center justify-center px-2 z-[99999] border-b-2 border-black font-bold uppercase pointer-events-none animate-pulse">
-            <span className="bg-red-600 text-white px-1 mr-2">V1.3.2</span>
+            <span className="bg-red-600 text-white px-1 mr-2 italic">V1.3.2</span>
             {status}
         </div>
     );
