@@ -47,7 +47,7 @@ export default function SignupPage() {
             <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-gray-900">Register Business</h1>
-                    <p className="text-gray-500">Start managing your inventory today</p>
+                    <p className="text-gray-700">Start managing your inventory today</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -112,7 +112,7 @@ export default function SignupPage() {
                     </button>
                 </form>
 
-                <div className="mt-6 text-center text-sm text-gray-600">
+                <div className="mt-6 text-center text-sm text-gray-800">
                     Already have an account?{" "}
                     <Link href="/login/admin" className="text-blue-600 hover:underline font-medium">
                         Sign in

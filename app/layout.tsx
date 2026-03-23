@@ -22,7 +22,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
-        <div className="fixed bottom-0 right-0 p-1 text-xs text-gray-400 bg-white/50 pointer-events-none z-50">v1.3.1-FORCE</div>
+        <div className="fixed bottom-0 right-0 p-1 text-xs text-gray-400 bg-white/50 pointer-events-none z-50">v1.3.2-OPTIMIZED</div>
       </body>
     </html>
   );

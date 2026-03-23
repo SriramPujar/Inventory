@@ -1,0 +1,130 @@
+No Firebase app associated with site inventory-62b8a, injecting project default config.
+  You can link a Web app to a Hosting site here https://console.firebase.google.com/project/inventory-62b8a/settings/general/web
+
+   Thank you for trying our [3mearly preview[23m of Next.js support on Firebase Hosting.
+   [31mDuring the preview, support is best-effort and breaking changes can be expected. Proceed with caution.[39m[33m
+   The integration is known to work with Next.js version [3m12 - 15.0[23m. You may encounter errors.[39m
+
+   [1mDocumentation:[22m https://firebase.google.com/docs/hosting/frameworks/nextjs
+   [1mFile a bug:[22m https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   [1mSubmit a feature request:[22m https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\srira\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\srira\inventory\package-lock.json
+
+
+   ▲ Next.js 16.0.3 (Turbopack)
+
+   - Environments: .env
+
+
+ ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+   Creating an optimized production build ...
+
+ ✓ Compiled successfully in 7.2s
+
+   Running TypeScript ...
+
+   Collecting page data using 11 workers ...
+
+   Generating static pages using 11 workers (0/18) ...
+
+   Generating static pages using 11 workers (4/18) 
+
+   Generating static pages using 11 workers (8/18) 
+
+   Generating static pages using 11 workers (13/18) 
+
+ ✓ Generating static pages using 11 workers (18/18) in 2.6s
+
+   Finalizing page optimization ...
+
+
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ○ /admin/orders
+├ ○ /admin/products
+├ ○ /admin/workers
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/dashboard
+├ ƒ /api/order
+├ ƒ /api/product
+├ ƒ /api/register
+├ ƒ /api/worker
+├ ○ /login/admin
+├ ○ /login/worker
+├ ○ /signup
+├ ○ /worker
+└ ○ /worker/sales
+
+
+ƒ Proxy (Middleware)
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+Building a Cloud Function to run this application. This is needed due to:
+ • middleware
+ • non-static component /api/auth/[...nextauth]/route
+ • non-static component /api/dashboard/route
+ • non-static component /api/order/route
+ • non-static component /api/product/route
+ • and 2 other reasons, use --debug to see more
+
+[33m[1m! [22m[39m This integration expects Node version 16, 18, or 20. You're running version 24, problems may be encountered.
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'inventory@0.1.0',
+npm warn EBADENGINE   required: { node: '20' },
+npm warn EBADENGINE   current: { node: 'v24.11.0', npm: '11.6.1' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'firebase-frameworks@0.11.8',
+npm warn EBADENGINE   required: { node: '^16.0.0 || ^18.0.0 || ^20.0.0 || ^22.0.0' },
+npm warn EBADENGINE   current: { node: 'v24.11.0', npm: '11.6.1' }
+npm warn EBADENGINE }
+
+up to date in 3s
+
+91 packages are looking for funding
+  run `npm fund` for details
+
+[1m[37m===[39m Deploying to 'inventory-62b8a'...[22m
+
+[36m[1mi [22m[39m deploying [1mfunctions, hosting[22m
+[36m[1mi  functions:[22m[39m preparing codebase [1mfirebase-frameworks-inventory-62b8a[22m for deployment
+[36m[1mi  functions:[22m[39m ensuring required API [1mcloudfunctions.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1mcloudbuild.googleapis.com[22m is enabled...
+[36m[1mi  artifactregistry:[22m[39m ensuring required API [1martifactregistry.googleapis.com[22m is enabled...
+[33m[1m! [22m[39m [1m[33mfunctions: [39m[22mpackage.json indicates an outdated version of firebase-functions. Please upgrade using [1mnpm install --save firebase-functions@latest[22m in your functions directory.
+[33m[1m! [22m[39m [1m[33mfunctions: [39m[22mPlease note that there will be breaking changes when you upgrade.
+[36m[1mi  functions:[22m[39m Loading and analyzing source code for codebase firebase-frameworks-inventory-62b8a to determine what to deploy
+Serving at port 8582
+
+[36m[1mi  extensions:[22m[39m ensuring required API [1mfirebaseextensions.googleapis.com[22m is enabled...
+[36m[1mi [22m[39m [36m[1mfunctions: [22m[39mLoaded environment variables from .env.
+[36m[1mi  functions:[22m[39m preparing [1m.firebase\inventory-62b8a\functions[22m directory for uploading...
+[36m[1mi [22m[39m [36m[1mfunctions:[22m[39m packaged [1mC:\Users\srira\inventory\.firebase\inventory-62b8a\functions[22m (22.63 MB) for uploading
+[36m[1mi  functions:[22m[39m ensuring required API [1mrun.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1meventarc.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1mpubsub.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m ensuring required API [1mstorage.googleapis.com[22m is enabled...
+[36m[1mi  functions:[22m[39m generating the service identity for [1mpubsub.googleapis.com[22m...
+[36m[1mi  functions:[22m[39m generating the service identity for [1meventarc.googleapis.com[22m...
+
+
+There was an issue deploying your functions. Verify that your project has a Google App Engine instance setup at https://console.cloud.google.com/appengine and try again. If this issue persists, please contact support.
+[33m[1m! [22m[39m [33mfunctions:[39m Upload Error: Request to https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions:generateUploadUrl had HTTP Error: 403, Write access to project 'inventory-62b8a' was denied: please check billing account associated and retry
+
+[1m[31mError:[39m[22m Request to https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions:generateUploadUrl had HTTP Error: 403, Write access to project 'inventory-62b8a' was denied: please check billing account associated and retry

@@ -1,0 +1,17 @@
+[2025-11-24T09:57:12.216Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[2025-11-24T09:57:12.217Z] > authorizing via signed-in user (srirampujar@gmail.com)
+[2025-11-24T09:57:12.217Z] [iam] checking project inventory-62b8a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[2025-11-24T09:57:12.219Z] Checked if tokens are valid: true, expires at: 1763981691482
+[2025-11-24T09:57:12.219Z] Checked if tokens are valid: true, expires at: 1763981691482
+[2025-11-24T09:57:12.234Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions [none]
+[2025-11-24T09:57:12.234Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions x-goog-quota-user=projects/inventory-62b8a
+[2025-11-24T09:57:12.234Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[2025-11-24T09:57:13.680Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions 200
+[2025-11-24T09:57:13.680Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[2025-11-24T09:57:13.681Z] Checked if tokens are valid: true, expires at: 1763981691482
+[2025-11-24T09:57:13.681Z] Checked if tokens are valid: true, expires at: 1763981691482
+[2025-11-24T09:57:13.682Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a [none]
+[2025-11-24T09:57:15.576Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a 200
+[2025-11-24T09:57:15.577Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a {"projectId":"inventory-62b8a","projectNumber":"4456277954","displayName":"inventory","name":"projects/inventory-62b8a","resources":{"hostingSite":"inventory-62b8a"},"state":"ACTIVE","etag":"1_d0d95df5-d8bc-4615-810c-9e98def84d62"}
+
+Error: Cannot deploy a web framework from source because the experiment webframeworks is not enabled. To enable webframeworks run firebase experiments:enable webframeworks

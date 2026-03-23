@@ -1,0 +1,718 @@
+[debug] [2025-11-24T10:52:37.201Z] ----------------------------------------------------------------------
+[debug] [2025-11-24T10:52:37.203Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\srira\inventory\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-11-24T10:52:37.204Z] CLI Version:   14.26.0
+[debug] [2025-11-24T10:52:37.204Z] Platform:      win32
+[debug] [2025-11-24T10:52:37.204Z] Node Version:  v24.11.0
+[debug] [2025-11-24T10:52:37.204Z] Time:          Mon Nov 24 2025 16:22:37 GMT+0530 (India Standard Time)
+[debug] [2025-11-24T10:52:37.204Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-24T10:52:37.369Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-24T10:52:37.369Z] > authorizing via signed-in user (srirampujar@gmail.com)
+[debug] [2025-11-24T10:52:37.369Z] [iam] checking project inventory-62b8a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-11-24T10:52:37.370Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:37.370Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:37.371Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions [none]
+[debug] [2025-11-24T10:52:37.371Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions x-goog-quota-user=projects/inventory-62b8a
+[debug] [2025-11-24T10:52:37.371Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-11-24T10:52:39.058Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions 200
+[debug] [2025-11-24T10:52:39.058Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-11-24T10:52:39.058Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:39.058Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:39.058Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a [none]
+[debug] [2025-11-24T10:52:39.771Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a 200
+[debug] [2025-11-24T10:52:39.772Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a {"projectId":"inventory-62b8a","projectNumber":"4456277954","displayName":"inventory","name":"projects/inventory-62b8a","resources":{"hostingSite":"inventory-62b8a"},"state":"ACTIVE","etag":"1_ba42c0e7-7dab-4468-9de6-5794dd537994"}
+[debug] [2025-11-24T10:52:42.555Z] defaultcredentials: writing to file C:\Users\srira\AppData\Roaming\firebase\srirampujar_gmail_com_application_default_credentials.json
+[debug] [2025-11-24T10:52:42.557Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:42.557Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:42.557Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites pageToken=&pageSize=10
+[debug] [2025-11-24T10:52:43.708Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites 200
+[debug] [2025-11-24T10:52:43.708Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites {"sites":[{"name":"projects/inventory-62b8a/sites/inventory-62b8a","defaultUrl":"https://inventory-62b8a.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-11-24T10:52:43.708Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:43.708Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:43.709Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites 
+[debug] [2025-11-24T10:52:44.279Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites 200
+[debug] [2025-11-24T10:52:44.279Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites {"sites":[{"name":"projects/inventory-62b8a/sites/inventory-62b8a","defaultUrl":"https://inventory-62b8a.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-11-24T10:52:44.279Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:44.279Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:44.280Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a/webApps/-/config [none]
+[debug] [2025-11-24T10:52:44.794Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a/webApps/-/config 200
+[debug] [2025-11-24T10:52:44.794Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a/webApps/-/config {"projectId":"inventory-62b8a","storageBucket":"inventory-62b8a.firebasestorage.app","apiKey":"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE","authDomain":"inventory-62b8a.firebaseapp.com","messagingSenderId":"4456277954","projectNumber":"4456277954","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2025-11-24T10:52:51.677Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:51.677Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:52:51.678Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites/inventory-62b8a [none]
+[debug] [2025-11-24T10:52:52.589Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites/inventory-62b8a 200
+[debug] [2025-11-24T10:52:52.589Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites/inventory-62b8a {"name":"projects/inventory-62b8a/sites/inventory-62b8a","defaultUrl":"https://inventory-62b8a.web.app","type":"DEFAULT_SITE"}
+[info]  ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\srira\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\srira\inventory\package-lock.json
+
+
+[info]    ▲ Next.js 16.0.3 (Turbopack)
+
+[info]    - Environments: .env
+
+
+[info]  ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully in 17.2s
+
+[info]    Running TypeScript ...
+
+[info]    Collecting page data using 11 workers ...
+
+[info]    Generating static pages using 11 workers (0/18) ...
+
+[info]    Generating static pages using 11 workers (4/18) 
+
+[info]    Generating static pages using 11 workers (8/18) 
+
+[info]    Generating static pages using 11 workers (13/18) 
+
+[info]  ✓ Generating static pages using 11 workers (18/18) in 4.3s
+
+[info]    Finalizing page optimization ...
+
+[info] 
+
+[info] Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ○ /admin/orders
+├ ○ /admin/products
+├ ○ /admin/workers
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/dashboard
+├ ƒ /api/order
+├ ƒ /api/product
+├ ƒ /api/register
+├ ƒ /api/worker
+├ ○ /login/admin
+├ ○ /login/worker
+├ ○ /signup
+├ ○ /worker
+└ ○ /worker/sales
+
+
+ƒ Proxy (Middleware)
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • middleware
+[info]  • non-static component /api/auth/[...nextauth]/route
+[info]  • non-static component /api/dashboard/route
+[info]  • non-static component /api/order/route
+[info]  • non-static component /api/product/route
+[debug] [2025-11-24T10:53:38.747Z]  • non-static component /api/register/route
+[debug] [2025-11-24T10:53:38.747Z]  • non-static component /api/worker/route
+[info]  • and 2 other reasons, use --debug to see more
+[info] 
+[debug] [2025-11-24T10:53:39.057Z] skipping /admin/orders due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2025-11-24T10:53:39.057Z] skipping /admin due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2025-11-24T10:53:39.057Z] skipping /admin/products due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2025-11-24T10:53:39.057Z] skipping /admin/workers due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2025-11-24T10:53:39.058Z] skipping /worker due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2025-11-24T10:53:39.059Z] skipping /worker/sales due to it matching an unsupported rewrite/redirect/header or middlware
+[debug] [2025-11-24T10:53:39.641Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:39.643Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:39.644Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites/inventory-62b8a [none]
+[debug] [2025-11-24T10:53:40.696Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites/inventory-62b8a 200
+[debug] [2025-11-24T10:53:40.696Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/inventory-62b8a/sites/inventory-62b8a {"name":"projects/inventory-62b8a/sites/inventory-62b8a","defaultUrl":"https://inventory-62b8a.web.app","type":"DEFAULT_SITE"}
+[warn] !  This integration expects Node version 16, 18, or 20. You're running version 24, problems may be encountered. 
+[debug] [2025-11-24T10:53:52.006Z] [web frameworks] effective firebase.json:  {
+  "hosting": [
+    {
+      "source": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "frameworksBackend": {
+        "region": "us-central1"
+      },
+      "site": "inventory-62b8a",
+      "rewrites": [
+        {
+          "source": "/**",
+          "function": {
+            "functionId": "ssrinventory62b8a",
+            "region": "us-central1",
+            "pinTag": true
+          }
+        }
+      ],
+      "redirects": [],
+      "headers": [
+        {
+          "source": "/_global-error",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/_global-error/layout,_N_T_/_global-error/page,_N_T_/_global-error"
+            }
+          ]
+        },
+        {
+          "source": "/admin/orders",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/orders/layout,_N_T_/admin/orders/page,_N_T_/admin/orders"
+            }
+          ]
+        },
+        {
+          "source": "/admin",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/page,_N_T_/admin"
+            }
+          ]
+        },
+        {
+          "source": "/_not-found",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/_not-found/layout,_N_T_/_not-found/page,_N_T_/_not-found"
+            }
+          ]
+        },
+        {
+          "source": "/admin/products",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/products/layout,_N_T_/admin/products/page,_N_T_/admin/products"
+            }
+          ]
+        },
+        {
+          "source": "/admin/workers",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/workers/layout,_N_T_/admin/workers/page,_N_T_/admin/workers"
+            }
+          ]
+        },
+        {
+          "source": "/favicon.ico",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "image/x-icon"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/favicon.ico/layout,_N_T_/favicon.ico/route,_N_T_/favicon.ico"
+            }
+          ]
+        },
+        {
+          "source": "/worker",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/worker/layout,_N_T_/worker/page,_N_T_/worker"
+            }
+          ]
+        },
+        {
+          "source": "/worker/sales",
+          "headers": [
+            {
+              "key": "x-nextjs-stale-time",
+              "value": "300"
+            },
+            {
+              "key": "x-nextjs-prerender",
+              "value": "1"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "_N_T_/layout,_N_T_/worker/layout,_N_T_/worker/sales/layout,_N_T_/worker/sales/page,_N_T_/worker/sales"
+            }
+          ]
+        },
+        {
+          "source": "/**/*.[jt]s",
+          "headers": [
+            {
+              "key": "Set-Cookie",
+              "value": "__FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoiaW52ZW50b3J5LTYyYjhhIiwic3RvcmFnZUJ1Y2tldCI6ImludmVudG9yeS02MmI4YS5maXJlYmFzZXN0b3JhZ2UuYXBwIiwiYXBpS2V5IjoiQUl6YVN5Q3A2M0JyNXJrM1ZxT1RIQVFXdGI1cm9Zek5Nc29iT0xFIiwiYXV0aERvbWFpbiI6ImludmVudG9yeS02MmI4YS5maXJlYmFzZWFwcC5jb20iLCJtZXNzYWdpbmdTZW5kZXJJZCI6IjQ0NTYyNzc5NTQiLCJwcm9qZWN0TnVtYmVyIjoiNDQ1NjI3Nzk1NCIsInZlcnNpb24iOiIyIn0sIl9hdXRoVG9rZW5TeW5jVVJMIjoiL19fc2Vzc2lvbiJ9; SameSite=Strict; Expires=2027-10-19T21:33:52.005Z; Path=/;"
+            }
+          ]
+        }
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "public": ".firebase\\inventory-62b8a\\hosting",
+      "webFramework": "next_ssr"
+    }
+  ],
+  "functions": [
+    {
+      "source": ".firebase\\inventory-62b8a\\functions",
+      "codebase": "firebase-frameworks-inventory-62b8a"
+    }
+  ]
+}
+[debug] [2025-11-24T10:53:52.007Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-24T10:53:52.008Z] > authorizing via signed-in user (srirampujar@gmail.com)
+[debug] [2025-11-24T10:53:52.008Z] [iam] checking project inventory-62b8a for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-11-24T10:53:52.009Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:52.009Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:52.009Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions [none]
+[debug] [2025-11-24T10:53:52.009Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions x-goog-quota-user=projects/inventory-62b8a
+[debug] [2025-11-24T10:53:52.010Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-11-24T10:53:53.511Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions 200
+[debug] [2025-11-24T10:53:53.512Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'inventory-62b8a'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2025-11-24T10:53:53.518Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:53.518Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:53.518Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a [none]
+[debug] [2025-11-24T10:53:53.875Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a 200
+[debug] [2025-11-24T10:53:53.876Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a {"projectNumber":"4456277954","projectId":"inventory-62b8a","lifecycleState":"ACTIVE","name":"inventory","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-24T09:22:37.154952Z"}
+[info] i  functions: preparing codebase firebase-frameworks-inventory-62b8a for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-11-24T10:53:53.886Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:53.886Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:53.886Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a/adminSdkConfig [none]
+[debug] [2025-11-24T10:53:54.378Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a/adminSdkConfig 200
+[debug] [2025-11-24T10:53:54.378Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-62b8a/adminSdkConfig {"projectId":"inventory-62b8a","storageBucket":"inventory-62b8a.firebasestorage.app"}
+[debug] [2025-11-24T10:53:54.379Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:54.379Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:53:54.380Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/inventory-62b8a/configs [none]
+[debug] [2025-11-24T10:53:55.709Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/inventory-62b8a/configs 200
+[debug] [2025-11-24T10:53:55.709Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/inventory-62b8a/configs {}
+[debug] [2025-11-24T10:53:55.713Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2025-11-24T10:53:58.077Z] > [functions] package.json contents: {
+  "name": "inventory",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "bcryptjs": "^3.0.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "firebase": "^12.6.0",
+    "firebase-admin": "^13.6.0",
+    "lucide-react": "^0.554.0",
+    "next": "16.0.3",
+    "next-auth": "^4.24.13",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "recharts": "^3.4.1",
+    "tailwind-merge": "^3.4.0",
+    "firebase-frameworks": "^0.11.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "20"
+  }
+}
+[debug] [2025-11-24T10:53:58.078Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase firebase-frameworks-inventory-62b8a to determine what to deploy 
+[debug] [2025-11-24T10:53:58.080Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-11-24T10:53:58.103Z] Found firebase-functions binary at 'C:\Users\srira\inventory\.firebase\inventory-62b8a\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8693
+
+[debug] [2025-11-24T10:54:00.053Z] Got response from /__/functions.yaml {"endpoints":{"ssrinventory62b8a":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","region":["us-central1"],"labels":{},"httpsTrigger":{},"entryPoint":"ssrinventory62b8a"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-11-24T10:54:04.140Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-24T10:54:04.140Z] > authorizing via signed-in user (srirampujar@gmail.com)
+[debug] [2025-11-24T10:54:04.140Z] [iam] checking project inventory-62b8a for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-11-24T10:54:04.141Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:04.141Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:04.141Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions [none]
+[debug] [2025-11-24T10:54:04.141Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions x-goog-quota-user=projects/inventory-62b8a
+[debug] [2025-11-24T10:54:04.141Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-11-24T10:54:04.552Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions 200
+[debug] [2025-11-24T10:54:04.553Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-11-24T10:54:04.554Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:04.554Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:04.554Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/inventory-62b8a/instances pageSize=100&pageToken=
+[debug] [2025-11-24T10:54:06.334Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/inventory-62b8a/instances 200
+[debug] [2025-11-24T10:54:06.334Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/inventory-62b8a/instances {}
+[info] i  functions: Loaded environment variables from .env. 
+[info] i  functions: preparing .firebase\inventory-62b8a\functions directory for uploading... 
+[info] i  functions: packaged C:\Users\srira\inventory\.firebase\inventory-62b8a\functions (22.63 MB) for uploading 
+[debug] [2025-11-24T10:54:13.052Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:13.053Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:13.053Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/inventory-62b8a/locations/-/functions [none]
+[debug] [2025-11-24T10:54:13.920Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/inventory-62b8a/locations/-/functions 200
+[debug] [2025-11-24T10:54:13.920Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/inventory-62b8a/locations/-/functions {}
+[debug] [2025-11-24T10:54:13.921Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:13.921Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:13.922Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-11-24T10:54:15.545Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/-/functions 200
+[debug] [2025-11-24T10:54:15.545Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/-/functions {"functions":[{"name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"build":"projects/4456277954/locations/us-central1/builds/89f088ef-d564-4f18-ab33-c48153cbed0e","runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"FAILED","updateTime":"2025-11-24T10:48:43.160484763Z","labels":{"firebase-functions-hash":"07097e4b82f291dcd16bd205cc3a81c2d1c4b3fc","deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-inventory-62b8a"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","createTime":"2025-11-24T10:47:38.906352061Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-11-24T10:54:15.559Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:15.559Z] Checked if tokens are valid: true, expires at: 1763985133314
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-11-24T10:54:15.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:15.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:15.560Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-11-24T10:54:15.560Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/pubsub.googleapis.com:generateServiceIdentity x-goog-quota-user=projects/4456277954
+[debug] [2025-11-24T10:54:15.560Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/pubsub.googleapis.com:generateServiceIdentity {}
+[debug] [2025-11-24T10:54:15.563Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-11-24T10:54:15.563Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/eventarc.googleapis.com:generateServiceIdentity x-goog-quota-user=projects/4456277954
+[debug] [2025-11-24T10:54:15.563Z] >>> [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/eventarc.googleapis.com:generateServiceIdentity {}
+[debug] [2025-11-24T10:54:17.309Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-11-24T10:54:17.309Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-4456277954@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"117471634298712275840"}}
+[debug] [2025-11-24T10:54:17.350Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-11-24T10:54:17.351Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/4456277954/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-4456277954@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"104920721246813294877"}}
+[debug] [2025-11-24T10:54:17.356Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:17.356Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:17.356Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a [none]
+[debug] [2025-11-24T10:54:18.927Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a 200
+[debug] [2025-11-24T10:54:18.927Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/inventory-62b8a {"projectNumber":"4456277954","projectId":"inventory-62b8a","lifecycleState":"ACTIVE","name":"inventory","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-11-24T09:22:37.154952Z"}
+[debug] [2025-11-24T10:54:18.927Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:18.928Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:18.928Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/4456277954 [none]
+[debug] [2025-11-24T10:54:19.377Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/4456277954 403
+[debug] [2025-11-24T10:54:19.377Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/4456277954 {"error":{"code":403,"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954","consumer":"projects/4456277954","service":"compute.googleapis.com","containerInfo":"4456277954","serviceTitle":"Compute Engine API"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954"}]}]}}
+[debug] [2025-11-24T10:54:19.379Z] unable to look up default compute service account. Falling back to 4456277954-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954","consumer":"projects/4456277954","service":"compute.googleapis.com","containerInfo":"4456277954","serviceTitle":"Compute Engine API"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/4456277954 had HTTP Error: 403, Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2025-11-24T10:54:19.380Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:19.380Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:19.380Z] >>> [apiv2][query] GET https://compute.googleapis.com/compute/v1/projects/4456277954 [none]
+[debug] [2025-11-24T10:54:19.665Z] <<< [apiv2][status] GET https://compute.googleapis.com/compute/v1/projects/4456277954 403
+[debug] [2025-11-24T10:54:19.666Z] <<< [apiv2][body] GET https://compute.googleapis.com/compute/v1/projects/4456277954 {"error":{"code":403,"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"serviceTitle":"Compute Engine API","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954","service":"compute.googleapis.com","containerInfo":"4456277954","consumer":"projects/4456277954"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954"}]}]}}
+[debug] [2025-11-24T10:54:19.666Z] unable to look up default compute service account. Falling back to 4456277954-compute@developer.gserviceaccount.com. Error: {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","errors":[{"message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","domain":"usageLimits","reason":"accessNotConfigured","extendedHelp":"https://console.developers.google.com"}],"status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"SERVICE_DISABLED","domain":"googleapis.com","metadata":{"serviceTitle":"Compute Engine API","activationUrl":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954","service":"compute.googleapis.com","containerInfo":"4456277954","consumer":"projects/4456277954"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developers console API activation","url":"https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954"}]}]}},"response":{"statusCode":403}},"exit":1,"message":"Request to https://compute.googleapis.com/compute/v1/projects/4456277954 had HTTP Error: 403, Compute Engine API has not been used in project 4456277954 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=4456277954 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.","status":403}
+[debug] [2025-11-24T10:54:19.674Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:19.674Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:19.674Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/inventory-62b8a/versions [none]
+[debug] [2025-11-24T10:54:19.674Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/inventory-62b8a/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase","firebase-web-framework":"next_ssr"}}
+[debug] [2025-11-24T10:54:20.864Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/inventory-62b8a/versions 200
+[debug] [2025-11-24T10:54:20.865Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/inventory-62b8a/versions {"name":"projects/4456277954/sites/inventory-62b8a/versions/98073ea3593260e7","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase","firebase-web-framework":"next_ssr"}}
+[debug] [2025-11-24T10:54:20.866Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:20.866Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:20.866Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/inventory-62b8a/billingInfo [none]
+[debug] [2025-11-24T10:54:22.394Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/inventory-62b8a/billingInfo 200
+[debug] [2025-11-24T10:54:22.394Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/inventory-62b8a/billingInfo {"name":"projects/inventory-62b8a/billingInfo","projectId":"inventory-62b8a","billingAccountName":"billingAccounts/01CDAA-425502-387A72","billingEnabled":true}
+[debug] [2025-11-24T10:54:22.398Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:22.399Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:22.399Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-11-24T10:54:23.868Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-11-24T10:54:23.868Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com/c62848d8-4a3c-422d-ba8a-2c8122799acb.zip?GoogleAccessId=service-4456277954@gcf-admin-robot.iam.gserviceaccount.com&Expires=1763983460&Signature=CaUi%2FCuMPDvypK5WuLuna9TWwCTwJnDvtZ%2FQQ86I1PwLP%2BpXnud6y8%2BnwpbrBDw%2F3qFofKQp%2BlRw%2FL3U5%2BXoHA0adUxGbQTbonK7ClEUooyA317xCNdDkmiHqAoGVlt4qgRe0Y%2B72ytQ8YpW%2B51iPOZkUfiS1hL4jclEyWuFHj2ut6%2F%2FOOQ%2BCRHzF4S5UPYD4waTTROSRH5taZ4TzfcYnYVLR3uG5W%2B8SdrK8VvML5Wh4oWpEt9ecVrJb%2BKo6TK1pi16KwMV%2FAGEpcg68Osoj5tlovgHX1myaydTyMk6MGTao0wtGU%2B5NYE5EtrazBIlHetYSZ0WIArR7vkEisTXZg%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com","object":"c62848d8-4a3c-422d-ba8a-2c8122799acb.zip"}}
+[debug] [2025-11-24T10:54:23.872Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com/c62848d8-4a3c-422d-ba8a-2c8122799acb.zip GoogleAccessId=service-4456277954%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1763983460&Signature=CaUi%2FCuMPDvypK5WuLuna9TWwCTwJnDvtZ%2FQQ86I1PwLP%2BpXnud6y8%2BnwpbrBDw%2F3qFofKQp%2BlRw%2FL3U5%2BXoHA0adUxGbQTbonK7ClEUooyA317xCNdDkmiHqAoGVlt4qgRe0Y%2B72ytQ8YpW%2B51iPOZkUfiS1hL4jclEyWuFHj2ut6%2F%2FOOQ%2BCRHzF4S5UPYD4waTTROSRH5taZ4TzfcYnYVLR3uG5W%2B8SdrK8VvML5Wh4oWpEt9ecVrJb%2BKo6TK1pi16KwMV%2FAGEpcg68Osoj5tlovgHX1myaydTyMk6MGTao0wtGU%2B5NYE5EtrazBIlHetYSZ0WIArR7vkEisTXZg%3D%3D
+[debug] [2025-11-24T10:54:23.872Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com/c62848d8-4a3c-422d-ba8a-2c8122799acb.zip [stream]
+[debug] [2025-11-24T10:54:41.420Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com/c62848d8-4a3c-422d-ba8a-2c8122799acb.zip 200
+[debug] [2025-11-24T10:54:41.421Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com/c62848d8-4a3c-422d-ba8a-2c8122799acb.zip [omitted]
+[info] +  functions: .firebase\inventory-62b8a\functions source uploaded successfully 
+[info] i  hosting[inventory-62b8a]: beginning deploy... 
+[info] i  hosting[inventory-62b8a]: found 49 files in .firebase\inventory-62b8a\hosting 
+[debug] [2025-11-24T10:54:41.435Z] [hosting] uploading with 200 concurrency
+[debug] [2025-11-24T10:54:41.539Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:41.539Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:41.540Z] [hosting] hash cache [LmZpcmViYXNlXGludmVudG9yeS02MmI4YVxob3N0aW5n] stored for 49 files
+[debug] [2025-11-24T10:54:41.540Z] [hosting][hash queue][FINAL] {"max":93,"min":9,"avg":48.53061224489796,"active":0,"complete":49,"success":49,"errored":0,"retried":0,"total":49,"elapsed":101}
+[debug] [2025-11-24T10:54:41.541Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/4456277954/sites/inventory-62b8a/versions/98073ea3593260e7:populateFiles [none]
+[debug] [2025-11-24T10:54:41.541Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/4456277954/sites/inventory-62b8a/versions/98073ea3593260e7:populateFiles {"files":{"/window.svg":"6bd2003bd35bb32c1c0d99ab3aeac0cc1edaefd79f27df1d954bc87184048d74","/vercel.svg":"529a1a21b4a82475a82db26173c28d7b27e2dc9d4b900eaf1c5329d96eea4ddd","/next.svg":"0665b9ab4493aa9d7e988b57024e28772ae543e804b8cf6b0a3633854b7c3c7f","/globe.svg":"6502a3e6120bf2d6e8417e7c40bb57fb8a6954de9c86d3f43076a75b60cd23a2","/file.svg":"5a09df6187e21aa9a7d05094389385876ac93c818e1dcbb77a26a8fe408bf79c","/_global-error.html":"ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c","/_not-found.html":"a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5","/500.html":"ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c","/404.html":"a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5","/signup.html":"43e71050a1894992721c478787bf1f87a14ee5348c6f9522dfba1ed4ea5ebaff","/index.html":"a1643a5ead064d217ef1e1f5ac31c87e536c5cd738f4d65a69833bef70e1f4ef","/_next/static/zSddm2qZJnzkCDxdLPb2m/_ssgManifest.js":"dc28a4dc92fe352ed5d2201bd3972ce47691bc8e89e0400a68d1541d0567c6d5","/_next/static/zSddm2qZJnzkCDxdLPb2m/_clientMiddlewareManifest.json":"546826d2e3eab429f5f05fd186d54d964ef38521d0923fb43d7e5b1cff38395b","/_next/static/media/ad66f9afd8947f86-s.7a40eb73.woff2":"21b0ae0980798b857a8228d5c0a8a31372bd0b5db034530c056f3b36b037e482","/favicon.ico":"36eaaa9259cda5765c4061fa8b7bf61c74dbda3a2a721a0811c73f5dae61a2e9","/_next/static/media/2bbe8d2671613f1f-s.76dcb0b2.woff2":"5ef466d8ca6f4a51fa3751faea59ad2f63b15dbf9782ae4246bcadacc57f6b8f","/_next/static/media/favicon.0b3bf435.ico":"36eaaa9259cda5765c4061fa8b7bf61c74dbda3a2a721a0811c73f5dae61a2e9","/_next/static/chunks/turbopack-356534271362929e.js":"d61db4a0df2d87c8d24f89b5395fd47ff66359dbe3f9965fba1ef8ef63ec87d4","/_next/static/zSddm2qZJnzkCDxdLPb2m/_buildManifest.js":"dcbe1c9b9159ca21caea98e1bad364012ae284e9551375ca62b83d2811efac91","/_next/static/chunks/fd532006f51496e2.js":"225939ee69707f8ec2346d1ddb52969b78b9e856cf176ddb876e036d633e7d38","/_next/static/chunks/abdf7560e71b0ac2.js":"8a35f177b1416980deae34a0c64f4fbed30402a2342d9387a62575d2a5a5c946","/_next/static/chunks/ab6a80889a0f685a.css":"eebe22e29f47b57585bc09eba1facec5f5d63a0b50fe17c7b3c906cc8561fd09","/_next/static/chunks/a6ca292a3d6352fc.js":"1e0ced9f032ae190a2da0ec5cb1d7ad136b49509a7e9c292c140a65dbd39527d","/_next/static/chunks/7b4722473d2ee6cf.js":"09da5e3b9a49b0da49f54d72ad1510467934e25f5ae29394d92fce406c77165b","/_next/static/chunks/a054430a292b0e27.js":"fef40f3e4655a8b05725f7436e1fcfdbae7a128c6f9b6c429470f44d3d7457d9","/_next/static/chunks/6c961853e366b938.js":"14132c9ccba9aa576577a24f5c1181f9e4893355256ebc0eacbcf91a77179374","/_next/static/chunks/ac3d24395a7c5053.js":"e942de74a968f48f2e41ac361b1c3302b00755593c0d11c38a909a0e428b3eeb","/_next/static/chunks/5e571b94defbae06.js":"30e0c3aaf1f672254df8415eb7b80a0b8766b593dc9bf2f93b3c09f41393280a","/_next/static/chunks/537cc0fccf3d978b.js":"11f9b62d1bc4a5550471b3830729872112b7935ec38013c48292cff9bdf6d9e8","/_next/static/chunks/481a3a8c70b91437.js":"7987fdb91ca11a40264430d2aa5c3684dfee01dd4ab8a6278cdf0dafb8bdffc4","/_next/static/chunks/3a6438f0282465f6.js":"72e6ca0eee22fdd9d9014830d6fa3cdae0cd16363c5a51d1fc3c44cbcff733bd","/_next/static/chunks/36369c82cc13d720.js":"5b45d31869aed25385e769222167abb8f519e040d5e9b80f9ef25b0904238bcd","/_next/static/chunks/5349bafb76687339.js":"d3d1428532b7f2e09c642a37f6a794d5eef9f4c9bfe7f07056dbf9ddf576e8de","/_next/static/chunks/17b0a447534989c3.js":"b8e51a0fd94e703d8f9656f8d0441d28824ae32c5da34a2db1c5b384a70fa6ae","/_next/static/chunks/326a6daa688befdd.js":"e663699ac65e4b6dee2423236763a36d58d70118182d98af3a74810f86dc01ad","/_next/static/chunks/1d55989c60739a05.js":"c027f790943c902678fd6b31790416b91f3f2e62b52082b0bbbf711c3f4fed05","/_next/static/chunks/637db6d84da723dc.js":"f0bc9aea9dcef1dea7d38d4a4eb18c9df6d61be265c0ec071b9c134987f28ad4","/_next/static/chunks/12f6b555769d4838.js":"0fcdcd1cff5b827d4320845646c86789cb7dfd9a4fdf99e3d99f9356e3aaf8d7","/login/worker.html":"8a261c2f9b38dead8b76c1743fbdc72f39bdb2a8d6898fcd33d2852512381ad3","/login/admin.html":"264afb6f7a3d0c3a810f1f57a86662cd02621a63d9859ca8d1154a9735d57f78","/_next/static/media/2c55a0e60120577a-s.2a48534a.woff2":"4ca02247386c89e13dde6791dd0632e3f22aaf94e91bc35ece0edf79ff3e0e77","/_next/static/media/9c72aa0f40e4eef8-s.18a48cbc.woff2":"aeb03c5c1522d2fe6f6384711817dbd6cdbbb3dfa99276adf7325e9eacdae1ee","/_next/static/media/5476f68d60460930-s.c995e352.woff2":"c4de9995b3bb8a73da02308cb75721515f897229c3c422e51304e8afc4bdeccd","/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2":"86835ac53a0e1de04820388d01b501389d5e9311509282b5e3bfbfc752754083","/_next/static/chunks/aa692b242fcfd50b.js":"1c97d80d03b7a202d2cc516d2a0cbf85e4b45f1fb195954067e64f8a02d6cd2a","/_next/static/chunks/a6dad97d9634a72d.js":"18e28d3214eda45048d80d3925ea7627b809e69ad2e95f7f98459e9146a61c3d","/_next/static/media/1bffadaabf893a1e-s.7cd81963.woff2":"cd2992a875e4939d47289a3cc44c8b8a0e63817f4cc9fbd8b3bdf93b5f66fbb3","/_next/static/chunks/ac2820dbfeba3bed.js":"f0b03bff1154ac134d4b2303bf42f8f3395f2e2e6c1a8d8b129c1fc9d47fe33f","/_next/static/chunks/c553300e1311da1a.js":"b35cc2c2e7bbd740358ac6faf48a10c14817e85a04fa532df8033f3b9b3baacc"}}
+[debug] [2025-11-24T10:54:42.559Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/4456277954/sites/inventory-62b8a/versions/98073ea3593260e7:populateFiles 200
+[debug] [2025-11-24T10:54:42.559Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/4456277954/sites/inventory-62b8a/versions/98073ea3593260e7:populateFiles {"uploadRequiredHashes":["a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5","ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c","264afb6f7a3d0c3a810f1f57a86662cd02621a63d9859ca8d1154a9735d57f78","a1643a5ead064d217ef1e1f5ac31c87e536c5cd738f4d65a69833bef70e1f4ef","8a261c2f9b38dead8b76c1743fbdc72f39bdb2a8d6898fcd33d2852512381ad3","43e71050a1894992721c478787bf1f87a14ee5348c6f9522dfba1ed4ea5ebaff"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files"}
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:42.560Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5 [none]
+[debug] [2025-11-24T10:54:42.560Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5 [stream]
+[debug] [2025-11-24T10:54:42.561Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c [none]
+[debug] [2025-11-24T10:54:42.561Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c [stream]
+[debug] [2025-11-24T10:54:42.562Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/264afb6f7a3d0c3a810f1f57a86662cd02621a63d9859ca8d1154a9735d57f78 [none]
+[debug] [2025-11-24T10:54:42.562Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/264afb6f7a3d0c3a810f1f57a86662cd02621a63d9859ca8d1154a9735d57f78 [stream]
+[debug] [2025-11-24T10:54:42.563Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a1643a5ead064d217ef1e1f5ac31c87e536c5cd738f4d65a69833bef70e1f4ef [none]
+[debug] [2025-11-24T10:54:42.563Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a1643a5ead064d217ef1e1f5ac31c87e536c5cd738f4d65a69833bef70e1f4ef [stream]
+[debug] [2025-11-24T10:54:42.563Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/8a261c2f9b38dead8b76c1743fbdc72f39bdb2a8d6898fcd33d2852512381ad3 [none]
+[debug] [2025-11-24T10:54:42.563Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/8a261c2f9b38dead8b76c1743fbdc72f39bdb2a8d6898fcd33d2852512381ad3 [stream]
+[debug] [2025-11-24T10:54:42.564Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/43e71050a1894992721c478787bf1f87a14ee5348c6f9522dfba1ed4ea5ebaff [none]
+[debug] [2025-11-24T10:54:42.564Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/43e71050a1894992721c478787bf1f87a14ee5348c6f9522dfba1ed4ea5ebaff [stream]
+[debug] [2025-11-24T10:54:42.564Z] [hosting][populate queue][FINAL] {"max":1021,"min":1021,"avg":1021,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1025}
+[debug] [2025-11-24T10:54:42.565Z] [hosting] uploads queued: 6
+[debug] [2025-11-24T10:54:44.207Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5 200
+[debug] [2025-11-24T10:54:44.207Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a62ffc6af1cdda245759d23188d6dc536f7dc95336ce9bd7c22da2d3ca8780a5 [stream]
+[debug] [2025-11-24T10:54:44.273Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c 200
+[debug] [2025-11-24T10:54:44.273Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/ff3f4e2060219895c606f4b4394ade10b01fd8bcc54ef11a9bbd4c5564f6b81c [stream]
+[debug] [2025-11-24T10:54:44.318Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/8a261c2f9b38dead8b76c1743fbdc72f39bdb2a8d6898fcd33d2852512381ad3 200
+[debug] [2025-11-24T10:54:44.318Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/8a261c2f9b38dead8b76c1743fbdc72f39bdb2a8d6898fcd33d2852512381ad3 [stream]
+[debug] [2025-11-24T10:54:44.319Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/43e71050a1894992721c478787bf1f87a14ee5348c6f9522dfba1ed4ea5ebaff 200
+[debug] [2025-11-24T10:54:44.319Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/43e71050a1894992721c478787bf1f87a14ee5348c6f9522dfba1ed4ea5ebaff [stream]
+[debug] [2025-11-24T10:54:44.367Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a1643a5ead064d217ef1e1f5ac31c87e536c5cd738f4d65a69833bef70e1f4ef 200
+[debug] [2025-11-24T10:54:44.367Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/a1643a5ead064d217ef1e1f5ac31c87e536c5cd738f4d65a69833bef70e1f4ef [stream]
+[debug] [2025-11-24T10:54:44.469Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/264afb6f7a3d0c3a810f1f57a86662cd02621a63d9859ca8d1154a9735d57f78 200
+[debug] [2025-11-24T10:54:44.470Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/inventory-62b8a/versions/98073ea3593260e7/files/264afb6f7a3d0c3a810f1f57a86662cd02621a63d9859ca8d1154a9735d57f78 [stream]
+[debug] [2025-11-24T10:54:44.470Z] [hosting][upload queue][FINAL] {"max":1910,"min":1648,"avg":1766,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":1911}
+[info] +  hosting[inventory-62b8a]: file upload complete 
+[debug] [2025-11-24T10:54:44.474Z] [hosting] deploy completed after 3051ms
+[info] i  functions: updating Node.js 20 (2nd Gen) function firebase-frameworks-inventory-62b8a:ssrinventory62b8a(us-central1)... 
+[debug] [2025-11-24T10:54:44.497Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:44.497Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:44.500Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels
+[debug] [2025-11-24T10:54:44.501Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a {"name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-uploads-4456277954.us-central1.cloudfunctions.appspot.com","object":"c62848d8-4a3c-422d-ba8a-2c8122799acb.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"}}
+[debug] [2025-11-24T10:54:46.631Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a 200
+[debug] [2025-11-24T10:54:46.631Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2025-11-24T10:54:46.634Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:46.634Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:46.634Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:54:47.936Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:54:47.937Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:54:48.446Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:54:48.447Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:48.447Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:48.447Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:54:49.754Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:54:49.754Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:54:50.769Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:54:50.769Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:50.770Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:50.770Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:54:51.071Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:54:51.072Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:54:53.088Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:54:53.088Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:53.089Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:53.089Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:54:54.401Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:54:54.402Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:54:58.407Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:54:58.408Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:58.408Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:54:58.408Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:54:59.666Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:54:59.667Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:55:07.682Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:55:07.682Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:07.682Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:07.683Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:55:09.043Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:55:09.043Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:55:19.060Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:55:19.061Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:19.061Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:19.061Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:55:20.418Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:55:20.418Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:55:30.423Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:55:30.424Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:30.424Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:30.424Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:55:30.820Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:55:30.821Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/4456277954/locations/us-central1/builds/78fb3667-2926-45d9-a4be-083e28c2046a"},"done":false}
+[debug] [2025-11-24T10:55:40.827Z] [update-firebase-frameworks-inventory-62b8a-us-central1-ssrinventory62b8a] Retrying task index 0
+[debug] [2025-11-24T10:55:40.828Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:40.828Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:40.828Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 [none]
+[debug] [2025-11-24T10:55:41.216Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 200
+[debug] [2025-11-24T10:55:41.216Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418 {"name":"projects/inventory-62b8a/locations/us-central1/operations/operation-1763981682575-64454fd9488eb-5f8db7cf-e042a418","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-11-24T10:54:43.271180960Z","endTime":"2025-11-24T10:55:33.682056074Z","target":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/inventory-62b8a/locations/us-central1/functions/ssrinventory62b8a","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrinventory62b8a","source":{"storageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981683223460"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-4456277954-us-central1","object":"ssrinventory62b8a/function-source.zip","generation":"1763981258010702"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/inventory-62b8a/serviceAccounts/4456277954-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","timeoutSeconds":60,"environmentVariables":{"FIRESTORE_PROJECT_ID":"inventory-62b8a","FIRESTORE_CLIENT_EMAIL":"firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com","FIRESTORE_PRIVATE_KEY":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n","VERCEL_URL":"inventory-62b8a.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}","GCLOUD_PROJECT":"inventory-62b8a","EVENTARC_CLOUD_EVENT_SOURCE":"projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a","FUNCTION_TARGET":"ssrinventory62b8a","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"4456277954-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-codebase":"firebase-frameworks-inventory-62b8a","firebase-functions-hash":"96d6690845f9e33ad96fefb582475977cebeae05"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-inventory-62b8a.cloudfunctions.net/ssrinventory62b8a","satisfiesPzi":true},"stages":[{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":true,"error":{"code":3,"message":"Build failed with status: FAILURE and message: npm error code EUSAGE\nnpm error\nnpm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.\nnpm error\nnpm error Missing: @opentelemetry/api@1.9.0 from lock file\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /www-data-home/.npm/_logs/2025-11-24T10_55_11_653Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954."}}
+[debug] [2025-11-24T10:55:41.216Z] Got source token undefined for region us-central1
+[error] Build failed with status: FAILURE and message: npm error code EUSAGE
+npm error
+npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+npm error
+npm error Missing: @opentelemetry/api@1.9.0 from lock file
+npm error
+npm error Clean install a project
+npm error
+npm error Usage:
+npm error npm ci
+npm error
+npm error Options:
+npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+npm error [--no-bin-links] [--no-fund] [--dry-run]
+npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+npm error
+npm error aliases: clean-install, ic, install-clean, isntall-clean
+npm error
+npm error Run "npm help ci" for more info
+npm error A complete log of this run can be found in: /www-data-home/.npm/_logs/2025-11-24T10_55_11_653Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954.
+[debug] [2025-11-24T10:55:41.229Z] Total Function Deployment time: 56734
+[debug] [2025-11-24T10:55:41.229Z] 1 Functions Deployed
+[debug] [2025-11-24T10:55:41.229Z] 1 Functions Errored
+[debug] [2025-11-24T10:55:41.229Z] 0 Function Deployments Aborted
+[debug] [2025-11-24T10:55:41.229Z] Average Function Deployment time: 56729
+[info] 
+[info] Functions deploy had errors with the following functions:
+	firebase-frameworks-inventory-62b8a:ssrinventory62b8a(us-central1)
+[debug] [2025-11-24T10:55:41.516Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[debug] [2025-11-24T10:55:41.517Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:41.518Z] Checked if tokens are valid: true, expires at: 1763985133314
+[debug] [2025-11-24T10:55:41.518Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2025-11-24T10:55:43.154Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2025-11-24T10:55:43.154Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts {"name":"projects/inventory-62b8a/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2025-11-24T10:47:47.421187Z","updateTime":"2025-11-24T10:49:16.847286Z","mode":"STANDARD_REPOSITORY","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","action":"DELETE","condition":{"tagState":"ANY","olderThan":"86400s"}}},"vulnerabilityScanningConfig":{"lastEnableTime":"2025-11-24T10:47:39.075529998Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"us-central1-docker.pkg.dev/inventory-62b8a/gcf-artifacts"}
+[debug] [2025-11-24T10:55:43.155Z] Functions deploy failed.
+[debug] [2025-11-24T10:55:43.155Z] {
+  "endpoint": {
+    "id": "ssrinventory62b8a",
+    "project": "inventory-62b8a",
+    "region": "us-central1",
+    "entryPoint": "ssrinventory62b8a",
+    "platform": "gcfv2",
+    "runtime": "nodejs20",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "FIRESTORE_PROJECT_ID": "inventory-62b8a",
+      "FIRESTORE_CLIENT_EMAIL": "firebase-adminsdk-fbsvc@inventory-62b8a.iam.gserviceaccount.com",
+      "FIRESTORE_PRIVATE_KEY": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+/IivgmyRkVJo\nBSEi9IzkZp5/JHGMOhgVzlBEg3qkuIrfXoxtk2MGyq8zct+1E6zRzrOB7RrXIJiC\n8bfKgvHcq6w56Iz2w9XkKYbn9NeFjDbDipDETk9GMvUwMn1PF13tq9m7Fa9JItW6\n0hKj1UJPHIABomBC0l4+xmodfxMHq0OHI/dLjvjHRTSKi5K69m6kBudACc2fEZVt\nfQGzWQWXNdNoaezsrOb+J6j1KnEyeEdGx0JVczM3sKnJOTyokuE7IBxKPJStMxwu\nI4/VnNTNG7QvhrnEbKRBiuNn3yPuKe1vDKNgE1QKghhqPo6FFfWpyIrBDPl+5WuI\n8CKAnq37AgMBAAECggEAHVHtSq3QrMECcC1dasg1ZbkVWw/auLw7HK85kRMdkx0x\nALK7XJ/JuO4JMJz8QrMnDxIBv+Vef1P7O0W67AWR9kk1XbHZtjvWtzo4LPMLL+7t\n11419FUmBBu9mtfIIgoZ0EDXjR+lSH/nD6ZsLdJcZYMgFGAmZrZ0uS7CdWMf+5yn\nfgXdEqlQCjcq3zLVu93QI21+bbUhaubeESGsjFrhrOV0iDqQvOPGUWUj5skuw7CZ\n3mj4r3yGOz5I7yFaOQOZvbXTnFqJvW6ef0VTq3M5FMmjvlaO8BaPdqiUXW0lKkaV\nDAMlxfEHzS39NPkHIFl1Qilif+6h9UNV5SKLX4ntzQKBgQDoREwMEu8WYBydUdAF\nzjhjGChdNfReXdT+y2FDZV8Pky4XdRjvyfAnnIFInw6oLsJ1J0Efm7LiJUS+WH2f\nM16rkkweAwrH5T1cv0S2Z361byhvqaQ5IIQ0Y8tDWgXV0fQ+WwtLUzPVmhqjx7Tk\nFGfcIVFzHaHTrAxaBei6IgluZQKBgQDSgGn60nsme5545B7f0UC11LV621DDb8ro\ndDAZOZ09r3mq2fVk6WO9/Yta9xnzskiAd7fcKB6LWpxt2WDVVB0iMN1ba80Kxuyv\n6RwWQrVD9+vVN5j2FV924zSLs+PZd31DbvA/HeVkDETXaBt2tey9s4jdiEZHBLlg\nrscfTt803wKBgQC2TXze8TGFf3SWKjO7iswJQ1nTJ1khhEZ8okc6LeO6Bsxjjv4+\nn2KGxLlYtbc8XE82wtPDqmJyS8w0FqKrBRfmVJK3761TjmNmW53kCUGTyKaVVjJW\nwGXj9PwCZjM0S3GIS8+GlMyXeDg2mrYpWrbWObSDRRvSVzTup7qt9a8vXQKBgE/M\nNmDLIbw46J5TfBDEto83j4R/V2J/IqB0SzeEy8LynmDSN2CFyTXgw888FS54y1tI\nBv8ChnG1a8+ItFiqhlDLzV42w4fuWRNmfytBJo4ZkeFGLko7V/EtuGGtVBbAYVAK\n4jBLGQaQUBiIcsDRvmk7ggrY+is58zxfhUStFZhpAoGAarE0EohKWx1qq6SR0g9i\nD9hqeuUnoBe0plsVbZeQTcMxcIkXA/FPLyae1E8SILayDhukLrHkVXV3T46y+yL/\ngGNeyMdRMPxfgreFQzMQYkNFbj1yS9D+iL8roc5JMms0vG771gZtvTCGHeHXVDaL\nYuo+mWMKusYXO3ZOFg+kR5U=\n-----END PRIVATE KEY-----\n",
+      "VERCEL_URL": "inventory-62b8a.web.app",
+      "__FIREBASE_FRAMEWORKS_ENTRY__": "next.js",
+      "__FIREBASE_DEFAULTS__": "{\"config\":{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\",\"apiKey\":\"AIzaSyCp63Br5rk3VqOTHAQWtb5roYzNMsobOLE\",\"authDomain\":\"inventory-62b8a.firebaseapp.com\",\"messagingSenderId\":\"4456277954\",\"projectNumber\":\"4456277954\",\"version\":\"2\"},\"_authTokenSyncURL\":\"/__session\"}",
+      "FIREBASE_CONFIG": "{\"projectId\":\"inventory-62b8a\",\"storageBucket\":\"inventory-62b8a.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "inventory-62b8a",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/inventory-62b8a/locations/us-central1/services/ssrinventory62b8a"
+    },
+    "codebase": "firebase-frameworks-inventory-62b8a",
+    "securityLevel": "SECURE_ALWAYS",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "96d6690845f9e33ad96fefb582475977cebeae05"
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Build failed with status: FAILURE and message: npm error code EUSAGE\nnpm error\nnpm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.\nnpm error\nnpm error Missing: @opentelemetry/api@1.9.0 from lock file\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /www-data-home/.npm/_logs/2025-11-24T10_55_11_653Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954.",
+    "original": {
+      "code": 3,
+      "message": "Build failed with status: FAILURE and message: npm error code EUSAGE\nnpm error\nnpm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.\nnpm error\nnpm error Missing: @opentelemetry/api@1.9.0 from lock file\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /www-data-home/.npm/_logs/2025-11-24T10_55_11_653Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/78fb3667-2926-45d9-a4be-083e28c2046a?project=4456277954."
+    },
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2025-11-24T10:55:43.265Z] Error: Failed to update function ssrinventory62b8a in region us-central1
+    at C:\Users\srira\inventory\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:411:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Fabricator.updateV2Function (C:\Users\srira\inventory\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:400:32)
+    at async Fabricator.updateEndpoint (C:\Users\srira\inventory\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:160:13)
+    at async handle (C:\Users\srira\inventory\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions

@@ -19,7 +19,6 @@ export async function GET(req: Request) {
         if (type === 'PRODUCTS' || type === 'DAILY') {
             const snapshot = await db.collection('products')
                 .where('businessId', '==', businessId)
-                .orderBy('date', 'desc')
                 .limit(100)
                 .get();
             data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -31,7 +30,7 @@ export async function GET(req: Request) {
             if (type === 'PENDING') query = query.where('status', '==', 'PENDING');
             if (type === 'COMPLETED') query = query.where('status', '==', 'COMPLETED');
             
-            const snapshot = await query.orderBy('date', 'desc').limit(100).get();
+            const snapshot = await query.limit(100).get();
             const orders = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             
             if (type === 'DAILY') {

@@ -1,0 +1,67 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Attempting to connect to Firestore...
+Error connecting to Firestore: Error: 7 PERMISSION_DENIED: Cloud Firestore API has not been used in project inventory-62b8a before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=inventory-62b8a then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+    at callErrorFromStatus (C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\call.ts:84:17)
+    at Object.onReceiveStatus (C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\client.ts:360:55)
+    at Object.onReceiveStatus (C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\client-interceptors.ts:466:34)
+    at Object.onReceiveStatus (C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\client-interceptors.ts:424:48)
+    at C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\resolving-call.ts:170:24
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeUnaryRequest (C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\client.ts:325:42)
+    at ServiceClientImpl.<anonymous> (C:\Users\srira\inventory\node_modules\google-gax\node_modules\@grpc\grpc-js\src\make-client.ts:189:15)
+    at C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\srira\inventory\node_modules\google-gax\src\normalCalls\timeout.ts:54:13
+    at repeat (C:\Users\srira\inventory\node_modules\google-gax\src\normalCalls\retries.ts:110:19)
+    at C:\Users\srira\inventory\node_modules\google-gax\src\normalCalls\retries.ts:157:7
+    at OngoingCallPromise.call (C:\Users\srira\inventory\node_modules\google-gax\src\call.ts:81:23)
+    at NormalApiCaller.call (C:\Users\srira\inventory\node_modules\google-gax\src\normalCalls\normalApiCaller.ts:43:15)
+    at C:\Users\srira\inventory\node_modules\google-gax\src\createApiCall.ts:157:26
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+Caused by: Error
+    at _firestore._traceUtil.startActiveSpan (C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\write-batch.js:438:27)
+    at C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\srira\inventory\node_modules\@opentelemetry\api\src\context\NoopContextManager.ts:31:15)
+    at ContextAPI.with (C:\Users\srira\inventory\node_modules\@opentelemetry\api\src\api\context.ts:77:42)
+    at NoopTracer.startActiveSpan (C:\Users\srira\inventory\node_modules\@opentelemetry\api\src\trace\NoopTracer.ts:98:27)
+    at ProxyTracer.startActiveSpan (C:\Users\srira\inventory\node_modules\@opentelemetry\api\src\trace\ProxyTracer.ts:51:20)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at WriteBatch.commit (C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\write-batch.js:436:43)
+    at C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\reference\document-reference.js:350:31
+    at C:\Users\srira\inventory\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30 {
+  code: 7,
+  details: 'Cloud Firestore API has not been used in project inventory-62b8a before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=inventory-62b8a then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.',
+  metadata: Metadata {
+    internalRepr: Map(5) {
+      'google.rpc.errorinfo-bin' => [Array],
+      'google.rpc.help-bin' => [Array],
+      'google.rpc.localizedmessage-bin' => [Array],
+      'grpc-status-details-bin' => [Array],
+      'x-debug-tracking-id' => [Array]
+    },
+    opaqueData: Map(0) {},
+    options: {}
+  },
+  note: 'Exception occurred in retry method that was not classified as transient',
+  statusDetails: [
+    ErrorInfo {
+      metadata: [Object],
+      reason: 'SERVICE_DISABLED',
+      domain: 'googleapis.com'
+    },
+    LocalizedMessage {
+      locale: 'en-US',
+      message: 'Cloud Firestore API has not been used in project inventory-62b8a before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=inventory-62b8a then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.'
+    },
+    Help { links: [Array] }
+  ],
+  reason: 'SERVICE_DISABLED',
+  domain: 'googleapis.com',
+  errorInfoMetadata: {
+    activationUrl: 'https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=inventory-62b8a',
+    service: 'firestore.googleapis.com',
+    containerInfo: 'inventory-62b8a',
+    consumer: 'projects/inventory-62b8a',
+    serviceTitle: 'Cloud Firestore API'
+  }
+}

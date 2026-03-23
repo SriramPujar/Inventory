@@ -1,0 +1,27 @@
+{
+  "appId": "com.inventory.app",
+  "directories": {
+    "buildResources": "resources"
+  },
+  "files": [
+    "assets/**/*",
+    "build/**/*",
+    "capacitor.config.*",
+    "app/**/*"
+  ],
+  "nsis": {
+    "allowElevation": true,
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "runAfterFinish": true
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "assets/appIcon.ico"
+  },
+  "mac": {
+    "category": "your.app.category.type",
+    "target": "dmg"
+  }
+}

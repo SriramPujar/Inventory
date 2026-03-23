@@ -1,0 +1,77 @@
+D:\inventory\app\(auth)\login\admin\page.tsx
+  Line 16: react/no-unescaped-entities - `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.
+D:\inventory\app\(auth)\signup\page.tsx
+  Line 38: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\admin\orders\page.tsx
+  Line 7: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 8: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 139: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 152: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 228: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 244: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 408: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 459: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 486: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 572: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\admin\page.tsx
+  Line 8: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 126: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 142: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\admin\products\page.tsx
+  Line 8: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 10: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 130: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 290: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\admin\workers\page.tsx
+  Line 7: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 96: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\api\chat\route.ts
+  Line 40: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 226: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 231: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 233: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 285: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 293: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\api\dashboard\route.ts
+  Line 35: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 36: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 36: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 37: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 37: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 46: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 49: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 73: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 75: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 78: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 82: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 83: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 84: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 91: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 92: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 93: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\api\order\route.ts
+  Line 71: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 75: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 75: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 98: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 115: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\api\product\route.ts
+  Line 67: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 73: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 77: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 77: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 100: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 142: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\api\worker\route.ts
+  Line 86: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 87: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 88: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\worker\page.tsx
+  Line 9: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 159: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 186: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+D:\inventory\app\worker\sales\page.tsx
+  Line 8: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 10: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 103: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.
+  Line 263: @typescript-eslint/no-explicit-any - Unexpected any. Specify a different type.

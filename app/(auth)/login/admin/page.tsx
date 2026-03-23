@@ -7,12 +7,12 @@ export default function AdminLoginPage() {
             <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
                 <div className="text-center mb-8">
                     <h1 className="text-2xl font-bold text-gray-900">Admin Login</h1>
-                    <p className="text-gray-500">Manage your business inventory</p>
+                    <p className="text-gray-700">Manage your business inventory</p>
                 </div>
 
                 <LoginForm role="ADMIN" />
 
-                <div className="mt-6 text-center text-sm text-gray-600">
+                <div className="mt-6 text-center text-sm text-gray-800">
                     Don't have an account?{" "}
                     <Link href="/signup" className="text-blue-600 hover:underline font-medium">
                         Register your business
