@@ -228,6 +228,16 @@ function DetailsModal({ type, onClose }: { type: string; onClose: () => void }) 
             }));
     }
 
+    const formatDate = (dateValue: any) => {
+        if (!dateValue) return "N/A";
+        // Handle Firestore Timestamp if it comes as {seconds, nanoseconds}
+        if (typeof dateValue === 'object' && dateValue.seconds) {
+            return new Date(dateValue.seconds * 1000).toLocaleDateString();
+        }
+        const d = new Date(dateValue);
+        return isNaN(d.getTime()) ? "N/A" : d.toLocaleDateString();
+    };
+
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
             <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
@@ -286,7 +296,7 @@ function DetailsModal({ type, onClose }: { type: string; onClose: () => void }) 
                                     ) : (
                                         processedData.map((item, idx) => (
                                             <tr key={idx} className="bg-white border-b hover:bg-gray-50">
-                                                <td className="px-4 py-3">{new Date(item.date).toLocaleDateString()}</td>
+                                                <td className="px-4 py-3">{formatDate(item.date)}</td>
                                                 <td className="px-4 py-3 font-medium text-gray-900">{item.customerName}</td>
 
                                                 {/* Column 3 & 4 */}
