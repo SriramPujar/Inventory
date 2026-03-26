@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Loader2, AlertCircle } from "lucide-react";
@@ -13,6 +13,11 @@ export function LoginForm({ role }: LoginFormProps) {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    // Aggressively pre-fetch the destination on mount to eliminate transition latency
+    useEffect(() => {
+        router.prefetch(role === "ADMIN" ? "/admin" : "/worker");
+    }, [router, role]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

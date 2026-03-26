@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
 import { Loader2, IndianRupee, ShoppingBag, ShoppingCart, Users, TrendingUp, Package, Plus } from "lucide-react";
 
@@ -94,20 +95,22 @@ export default function AdminDashboard() {
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
                 <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Actions</h3>
                 <div className="flex flex-wrap gap-4">
-                    <button 
-                        onClick={() => router.push('/admin/products?add=true')}
+                    <Link 
+                        href="/admin/products?add=true"
+                        prefetch={true}
                         className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
                     >
                         <Plus size={20} />
                         Add Product Sale
-                    </button>
-                    <button 
-                        onClick={() => router.push('/admin/orders?add=true')}
+                    </Link>
+                    <Link 
+                        href="/admin/orders?add=true"
+                        prefetch={true}
                         className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm font-medium"
                     >
                         <Plus size={20} />
                         Create New Order
-                    </button>
+                    </Link>
                 </div>
             </div>
 

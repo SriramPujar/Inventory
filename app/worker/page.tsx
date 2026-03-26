@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Calendar, MapPin, CheckCircle, Clock, AlertCircle, Plus } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function WorkerOrdersPage() {
     const router = useRouter();
@@ -61,13 +62,14 @@ export default function WorkerOrdersPage() {
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
                 <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Actions</h3>
                 <div className="flex flex-wrap gap-4">
-                    <button 
-                        onClick={() => router.push('/worker/sales?add=true')}
+                    <Link 
+                        href="/worker/sales?add=true"
+                        prefetch={true}
                         className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
                     >
                         <Plus size={20} />
                         Add Product Sale
-                    </button>
+                    </Link>
                 </div>
             </div>
 
