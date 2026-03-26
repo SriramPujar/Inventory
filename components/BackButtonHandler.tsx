@@ -70,12 +70,7 @@ export function BackButtonHandler() {
         };
     }, [pathname]);
 
-    // High-visibility pulsing bar
-    return (
-        <div className="fixed top-0 left-0 right-0 h-8 bg-yellow-400 text-black text-[12px] flex items-center justify-center px-2 z-[99999] border-b-2 border-black font-bold uppercase pointer-events-none animate-pulse">
-            <span className="bg-red-600 text-white px-1 mr-2 italic">V1.3.2</span>
-            {status}
-        </div>
-    );
+    // Render nothing, run invisibly
+    return null;
 }
 
